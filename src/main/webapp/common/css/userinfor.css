@@ -1,0 +1,13 @@
+.left-bar{
+    position: relative;
+    margin-left: 100px;
+    height: 500px;
+    border: solid 1px;
+    width: 300px;
+}
+.left-bar .left-list li{
+    position: relative;
+    margin-left: 50px;
+    background-color: #4c4c4c;
+    border: solid 1px;
+}

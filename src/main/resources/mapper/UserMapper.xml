@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.yznu.zubow.mapper.UserMapper" >
+
+  <!-- resultMap – 数据库结果集   加载   实体对象。 -->
+  <resultMap id="BaseResultMap" type="cn.yznu.zubow.entity.User" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createdate" property="createdate" jdbcType="DATE" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="DOUBLE" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="identity" property="identity" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <!-- 定义 重用语句快 -->
+  <sql id="Base_Column_List" >
+    id, createdate, status, money, type, identity, name, tel, password, sex
+  </sql>
+
+  <!--parameterType 	传入语句参数类的   类型或别名。 -->
+  <!--resultMap  返回自定义数据集合        resultType  返回指定类型
+  使用 resultMap 或 resultType,但不能同时使用。-->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"/> FROM user WHERE name = #{name,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="cn.yznu.zubow.entity.User" >
+    insert into user (id, createdate, status,
+    money, type, identity,
+    name, tel, password,
+    sex)
+    values (#{id,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE}, #{status,jdbcType=INTEGER},
+    #{money,jdbcType=DOUBLE}, #{type,jdbcType=INTEGER}, #{identity,jdbcType=VARCHAR},
+    #{name,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+    #{sex,jdbcType=VARCHAR})
+  </insert>
+
+  <!--insertSelective  插入  有选择性的插入  直插入有值的字段-->
+  <insert id="insertSelective" parameterType="cn.yznu.zubow.entity.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createdate != null" >
+        createdate,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="identity != null" >
+        identity,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=DATE},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="identity != null" >
+        #{identity,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <!--同理   更新-->
+  <update id="updateByPrimaryKeySelective" parameterType="cn.yznu.zubow.entity.User" >
+    update user
+    <set >
+      <if test="createdate != null" >
+        createdate = #{createdate,jdbcType=DATE},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="identity != null" >
+        identity = #{identity,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="cn.yznu.zubow.entity.User" >
+    update user
+    set createdate = #{createdate,jdbcType=DATE},
+    status = #{status,jdbcType=INTEGER},
+    money = #{money,jdbcType=DOUBLE},
+    type = #{type,jdbcType=INTEGER},
+    identity = #{identity,jdbcType=VARCHAR},
+    name = #{name,jdbcType=VARCHAR},
+    tel = #{tel,jdbcType=VARCHAR},
+    password = #{password,jdbcType=VARCHAR},
+    sex = #{sex,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
