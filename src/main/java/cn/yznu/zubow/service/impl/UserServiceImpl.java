@@ -5,6 +5,7 @@ import cn.yznu.zubow.mapper.UserMapper;
 import cn.yznu.zubow.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * (方法描述)
@@ -20,5 +21,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public int updateTel(User currentUser) {
        return userMapper.updateByPrimaryKeySelective(currentUser);
+    }
+
+    @Transactional
+    @Override
+    public int updatePass(User user) {
+        return userMapper.updateByPrimaryKey(user);
     }
 }

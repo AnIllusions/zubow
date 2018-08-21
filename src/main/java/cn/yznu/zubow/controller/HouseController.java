@@ -1,5 +1,6 @@
 package cn.yznu.zubow.controller;
 
+import cn.yznu.zubow.entity.House;
 import cn.yznu.zubow.entity.User;
 import cn.yznu.zubow.mapper.UserMapper;
 import cn.yznu.zubow.service.HouseService;
@@ -39,5 +40,16 @@ public class HouseController {
     @GetMapping("/houseAdd")
     public String houseAdd(){
         return "houseuser/houseadd";
+    }
+
+    @PostMapping("/houseAdd")
+    @ResponseBody
+    public String houseAdd(House house,HttpServletRequest request){
+        house.setId(IdDateTime.IdTime(new Date()));
+        house.setCreatedate(new Date());
+        house.setHouseuser_name(((User)request.getSession().getAttribute("currentUser")).getName());
+        System.out.println(house.toString());
+
+        return "sdfasdfad";
     }
 }

@@ -10,4 +10,6 @@ import cn.yznu.zubow.entity.User; /**
 public interface UserService {
 
     int updateTel(User currentUser);
+
+    int updatePass(User user);
 }

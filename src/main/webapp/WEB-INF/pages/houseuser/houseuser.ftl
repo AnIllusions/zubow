@@ -28,7 +28,6 @@
         <li class="layui-nav-item" style="float: right">
             <a href="javascript:;">个人中心</a>
             <dl class="layui-nav-child">
-                <dd id="updatePass"><a>修改密码</a></dd>
                 <dd><a href="/user/loginout">退出登陆</a></dd>
             </dl>
         </li>
@@ -84,6 +83,7 @@
         cms.addNav([
             {id: 1, pid: 0, node: '个人信息', url: '/house/houseDetail'},
             {id: 7, pid: 0, node: '注册房源', url: '/house/houseAdd'},
+            {id: 8, pid: 0, node: '修改密码', url: '/user/updatePass'},
             {id: 2, pid: 0, node: '搜索引擎', url: ''},
             {id: 3, pid: 2, node: '百度', url: 'https://www.baidu.com/'},
             {id: 4, pid: 2, node: '必应', url: 'http://cn.bing.com/'},
@@ -93,17 +93,6 @@
         cms.bind(60 + 41 + 20 + 44); //头部高度 + 顶部切换卡标题高度 + 顶部切换卡内容padding + 底部高度
 
         cms.clickLI(0);
-        $('#updatePass').on('click', function(){
-            layer.open({
-                type: 2,
-                title: '修改密码',
-                maxmin: true,
-                shadeClose: true, //点击遮罩关闭层
-                area : ['400px' , '240px'],
-                content: '/user/updatePass'
-            });
-        });
-
     });
 
 </script>

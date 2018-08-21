@@ -6,10 +6,7 @@ import cn.yznu.zubow.util.InfoType;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -55,6 +52,27 @@ public class HouseUserController {
     @GetMapping("/updatePass")
     public String updatePass(){
         return "houseuser/updatePass";
+    }
+
+    @PostMapping("/updatePass")
+    @ResponseBody
+    public InfoType updatePassword(User user,HttpServletRequest request){
+        User oldUser = (User) request.getSession().getAttribute("currentUser");
+
+        System.out.println(oldUser);
+        int k = userService.updatePass(oldUser);
+        InfoType infoType = new InfoType();
+        //修改失败
+        if (k==0){
+            infoType.setFlag(false);
+            infoType.setMsg("修改失败");
+            return infoType;
+        }else {
+            infoType.setFlag(true);
+            infoType.setMsg("修改成功");
+            request.getSession().removeAttribute("currentUser");
+            return infoType;
+        }
     }
 
 }
