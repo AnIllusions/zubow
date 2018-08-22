@@ -33,10 +33,12 @@ public class HouseController {
     public String houseUser(){
         return "houseuser/houseuser";
     }
+
     @GetMapping("/houseDetail")
     public String houseDetail(){
         return "houseuser/housedetail";
     }
+
     @GetMapping("/houseAdd")
     public String houseAdd(){
         return "houseuser/houseadd";
@@ -47,9 +49,9 @@ public class HouseController {
     public String houseAdd(House house,HttpServletRequest request){
         house.setId(IdDateTime.IdTime(new Date()));
         house.setCreatedate(new Date());
-        house.setHouseuser_name(((User)request.getSession().getAttribute("currentUser")).getName());
+        house.setHouseuserName(((User)request.getSession().getAttribute("currentUser")).getName());
+        houseService.addHouse(house);
         System.out.println(house.toString());
-
         return "sdfasdfad";
     }
 }

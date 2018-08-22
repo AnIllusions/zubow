@@ -19,11 +19,11 @@ public class House {
     private String id;
     private Date createdate;
     /*-1已租0预定1空闲	状态*/
-    private int status;
+    private Integer status;
     private String address;
     /*户型*/
     private String housetype;
-    private double area;
+    private Double area;
     /*10,14	楼层  逗号隔开*/
     private String floor;
     /*装修风格      精装 简装     */
@@ -33,11 +33,12 @@ public class House {
     /*描述 房屋描述及周边*/
     private String remark;
     /*租金*/
-    private double rent;
+    private Double rent;
     /*比如 押一付三*/
     private String renttype;
     /*租方式(0整租 1合租)*/
-    private int leasehold;
+    private Integer leasehold;
     /*外键     房东姓名*/
-    private String houseuser_name;
+    private String houseuserName;
+
 }

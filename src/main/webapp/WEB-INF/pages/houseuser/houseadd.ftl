@@ -37,16 +37,6 @@
         <div class="layui-form-mid layui-word-aux">㎡</div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">当前楼层</label>
-        <div class="layui-input-inline" style="width: 100px;">
-            <input type="text" name="floor" placeholder="数字" autocomplete="off" class="layui-input" lay-verify="number">
-        </div>
-        <div class="layui-form-mid">总楼层</div>
-        <div class="layui-input-inline" style="width: 100px;">
-            <input type="text" name="floor" placeholder="数字" autocomplete="off" class="layui-input" lay-verify="number">
-        </div>
-    </div>
-    <div class="layui-form-item">
         <label class="layui-form-label">装修</label>
         <div class="layui-input-block">
             <input type="radio" name="decoration" value="精装" title="精装" checked>
@@ -60,6 +50,18 @@
         </div>
         <div class="layui-form-mid layui-word-aux">元</div>
     </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">当前楼层</label>
+        <div class="layui-input-inline" style="width: 100px;">
+            <input type="text" name="floor" placeholder="数字" autocomplete="off" class="layui-input" lay-verify="number">
+        </div>
+        <div class="layui-form-mid">总楼层</div>
+        <div class="layui-input-inline" style="width: 100px;">
+            <input type="text" name="floor" placeholder="数字" autocomplete="off" class="layui-input" lay-verify="number">
+        </div>
+    </div>
+
+
     <div class="layui-form-item">
         <label class="layui-form-label">房屋配套</label>
         <div class="layui-input-block">

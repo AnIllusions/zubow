@@ -1,6 +1,8 @@
 package cn.yznu.zubow.service.impl;
 
+import cn.yznu.zubow.entity.House;
 import cn.yznu.zubow.entity.User;
+import cn.yznu.zubow.mapper.HouseMapper;
 import cn.yznu.zubow.mapper.UserMapper;
 import cn.yznu.zubow.service.HouseService;
 import cn.yznu.zubow.service.LoginService;
@@ -15,6 +17,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class HouseServiceImpl implements HouseService {
+    @Autowired
+    HouseMapper houseMapper;
 
+    public int addHouse(House house) {
+
+        return houseMapper.insert(house);
+    }
 
 }

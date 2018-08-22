@@ -1,5 +1,7 @@
 package cn.yznu.zubow.service;
 
+import cn.yznu.zubow.entity.House;
+
 /**
  * (接口描述)
  *  房源接口
@@ -9,4 +11,5 @@ package cn.yznu.zubow.service;
 
 
 public interface HouseService {
+    int addHouse(House house);
 }
