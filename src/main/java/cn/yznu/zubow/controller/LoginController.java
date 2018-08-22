@@ -72,11 +72,6 @@ public class LoginController {
         return "index";
     }
 
-    @RequestMapping("/showUser")
-    @ResponseBody
-    public String showUser(){
-        return "jjjjj";
-    }
 
     @RequestMapping("/register")
     public String register(User user,HttpServletRequest request){

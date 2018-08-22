@@ -82,24 +82,20 @@
     </bean>
 
     <!--配置拦截器-->
-   <!-- <mvc:interceptors>
-        &lt;!&ndash; 使用 bean 定义一个 Interceptor，直接定义在 mvc:interceptors 下面的 Interceptor 将拦截所有的请求 &ndash;&gt;
-        &lt;!&ndash;<bean class="cn.yznu.system.common.OrginInterceptor"/>&ndash;&gt;
-        &lt;!&ndash; 评论拦截器 &ndash;&gt;
+    <mvc:interceptors>
+        <!-- 拦截所有 -->
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="cn.yznu.system.common.OrginInterceptor"/>
+            <bean class="cn.yznu.zubow.config.Interceptor.OrginInterceptor"/>
         </mvc:interceptor>
-        &lt;!&ndash; 后台登陆拦截器 &ndash;&gt;
+        <!-- 非法访问拦截 -->
         <mvc:interceptor>
-            &lt;!&ndash;拦截路径&ndash;&gt;
-            <mvc:mapping path="/admin/**"/>
-            <mvc:exclude-mapping path="/admin/login.html"/>
-            <mvc:exclude-mapping path="/admin/login.do"/>
-            <mvc:exclude-mapping path="/admin/logout.do"/>
-            &lt;!&ndash; 定义在 mvc:interceptor 下面的 Interceptor，表示对特定的请求进行拦截 &ndash;&gt;
-            <bean class="cn.yznu.system.admin.base.interceptor.LoginInterceptor"/>
+            <mvc:mapping path="/user/**"/>
+            <mvc:mapping path="/house/**"/>
+            <mvc:exclude-mapping path="/user/login"/>
+            <mvc:exclude-mapping path="/user/index"/>
+            <bean class="cn.yznu.zubow.config.Interceptor.LoginInterceptor"/>
         </mvc:interceptor>
-    </mvc:interceptors>-->
+    </mvc:interceptors>
 
 </beans>
