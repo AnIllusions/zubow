@@ -14,11 +14,12 @@
 
     <!--配置静态资源-->
     <mvc:default-servlet-handler/>
-    <!--用于上传   -->
-<!--    <mvc:resources mapping="/common/**" location="classpath:/common/" />-->
 
     <!-- 默认扫描的包路径 -->
-    <context:component-scan base-package="cn.yznu.zubow.controller" />
+    <context:component-scan base-package="cn.yznu.zubow">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
+    </context:component-scan>
 
     <!-- 添加注解驱动 -->
     <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager">
@@ -54,8 +55,10 @@
 
     <!--配置上传文件参数-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <!--文件上传 所有文件的容量之和的大小-->
-        <property name="maxUploadSize" value="10240000"/>
+        <!--文件上传 最大文件大小，-1为不限制大小  字节 -->
+        <property name="maxUploadSize" value="512000"/>
+        <!-- 最大内存大小 -->
+        <property name="maxInMemorySize" value="10240"/>
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 

@@ -83,12 +83,11 @@
         cms.addNav([
             {id: 1, pid: 0, node: '个人信息', url: '/house/houseDetail'},
             {id: 7, pid: 0, node: '注册房源', url: '/house/houseAdd'},
+            {id: 9, pid: 0, node: '房源列表', url: '/house/houseList'},
+            {id: 4, pid: 0, node: '消息提醒', url: '/msg/remind'},
             {id: 8, pid: 0, node: '修改密码', url: '/user/updatePass'},
             {id: 2, pid: 0, node: '搜索引擎', url: ''},
             {id: 3, pid: 2, node: '百度', url: 'https://www.baidu.com/'},
-            {id: 4, pid: 2, node: '必应', url: 'http://cn.bing.com/'},
-            {id: 5, pid: 2, node: '360', url: 'https://www.so.com/'},
-            {id: 6, pid: 2, node: '搜狗', url: 'https://www.sogou.com/'},
         ], 0, 'id', 'pid', 'node', 'url');
         cms.bind(60 + 41 + 20 + 44); //头部高度 + 顶部切换卡标题高度 + 顶部切换卡内容padding + 底部高度
 

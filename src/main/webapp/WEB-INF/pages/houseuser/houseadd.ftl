@@ -97,16 +97,22 @@
 
     <div class="layui-form-item">
         <label class="layui-form-label">房屋图片</label>
-        <div class="layui-upload">
-            <button type="button" class="layui-btn" id="upload_picture">上传图片</button>
 
-            <div class="layui-upload-list">
-                <img class="layui-upload-img" id="demo1">
-                <p id="demoText"></p>
-            </div>
+        <div class="layui-upload">
+            <button type="button" class="layui-btn" id="upload_picture">图片上传</button>
         </div>
     </div>
 
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <blockquote class="layui-elem-quote layui-quote-nm" style="overflow: hidden;height: 100px">
+              <div class="layui-upload-list" id="demo2">
+                  预览
+              </div>
+            </blockquote>
+        </div>
+    </div>
 
     <div class="layui-form-item layui-form-text">
         <label class="layui-form-label">房屋概要</label>
@@ -114,7 +120,6 @@
             <textarea name="remark" placeholder="请输入房屋概要" class="layui-textarea"></textarea>
         </div>
     </div>
-
 
 <#--————————————-->
 
@@ -132,19 +137,26 @@
 <script src="/common/js/jquery.min.js" type="text/javascript"></script>
 <script>
     //Demo
-    layui.use(['upload','form'], function(){
+    layui.use(['upload','form','layer'], function(){
         var upload = layui.upload;
         var form = layui.form;
         var $ = layui.jquery;
+        var layer = layui.layer;
+
         //执行实例
-        var uploadInst = upload.render({
-            elem: '#upload_picture' //绑定元素
-            ,url: '' //上传接口
-            ,done: function(res){
-                //上传完毕回调
+        //多图片上传
+        upload.render({
+            elem: '#upload_picture'
+            ,url: '/house/pictureUp'
+            ,multiple: true
+            ,before: function(obj){
+                //预读本地文件示例，不支持ie8
+                obj.preview(function(index, file, result){
+                    $('#demo2').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img"  style="height: 100px;width: 70px"  >')
+                });
             }
-            ,error: function(){
-                //请求异常回调
+            ,done: function(res){
+                layer.msg(res.msg);
             }
         });
 /*

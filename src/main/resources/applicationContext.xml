@@ -15,7 +15,7 @@
 
     <!--扫描注解包-->
     <context:component-scan base-package="cn.yznu.zubow">
-        <context:exclude-filter type="regex" expression="cn.yznu.zubow.controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
     <!--加载数据库参数文件-->
@@ -57,6 +57,8 @@
         <!-- 数据源 -->
         <property name="dataSource" ref="dataSource"/>
     </bean>
+    <!-- 使用注解事物 -->
+    <tx:annotation-driven transaction-manager="transactionManager"  />
 
     <!-- 通知 -->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
@@ -72,9 +74,9 @@
     </tx:advice>
 
     <!-- 切面 -->
-   <!-- <aop:config proxy-target-class="true">
+    <aop:config proxy-target-class="true">
         <aop:advisor advice-ref="txAdvice"
-                     pointcut="execution(* cn.yznu.system.admin.*.service.impl.*.*(..)) or execution(* cn.yznu.system*.service.impl.*.*(..))"/>
-    </aop:config>-->
+                     pointcut="execution(* cn.yznu.zubow.service.impl.*.*(..)) or execution(* cn.yznu.zubow.service.impl.*.*(..))"/>
+    </aop:config>
 
 </beans>

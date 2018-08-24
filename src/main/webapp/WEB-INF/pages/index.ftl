@@ -16,7 +16,7 @@
 <div class="header layui-bg-cyan">
     <ul class="layui-nav ">
         <li class="layui-nav-item"><a href="javascript:;">城市[重庆]</a></li>
-        <li class="layui-nav-item"><a href="javascript:;">房源中心</a></li>
+        <li class="layui-nav-item"><a href="/tenant/houseList">房源中心</a></li>
         <li class="layui-nav-item"><a href="javascript:;">整租</a></li>
         <li class="layui-nav-item"><a href="javascript:;">合租</a></li>
 

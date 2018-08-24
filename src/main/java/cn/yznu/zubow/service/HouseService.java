@@ -2,6 +2,8 @@ package cn.yznu.zubow.service;
 
 import cn.yznu.zubow.entity.House;
 
+import java.util.List;
+
 /**
  * (接口描述)
  *  房源接口
@@ -11,5 +13,11 @@ import cn.yznu.zubow.entity.House;
 
 
 public interface HouseService {
+
+    /**
+     * 用于 保存房东房源   保存图片
+     * @param house
+     * @return
+     */
     int addHouse(House house);
 }

@@ -2,10 +2,9 @@ package cn.yznu.zubow.controller;
 
 import cn.yznu.zubow.entity.House;
 import cn.yznu.zubow.entity.User;
-import cn.yznu.zubow.mapper.UserMapper;
 import cn.yznu.zubow.service.HouseService;
-import cn.yznu.zubow.service.LoginService;
 import cn.yznu.zubow.util.IdDateTime;
+import cn.yznu.zubow.util.PhotoListPath;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 /**
  * (方法描述)
@@ -39,6 +39,11 @@ public class HouseController {
         return "houseuser/housedetail";
     }
 
+    @GetMapping("/houseList")
+    public String houseList(){
+        return "houseuser/houseList";
+    }
+
     @GetMapping("/houseAdd")
     public String houseAdd(){
         return "houseuser/houseadd";
@@ -46,12 +51,16 @@ public class HouseController {
 
     @PostMapping("/houseAdd")
     @ResponseBody
-    public String houseAdd(House house,HttpServletRequest request){
+    public String houseAdd(House house,HttpServletRequest request) throws IOException {
         house.setId(IdDateTime.IdTime(new Date()));
         house.setCreatedate(new Date());
         house.setHouseuserName(((User)request.getSession().getAttribute("currentUser")).getName());
+
         houseService.addHouse(house);
         System.out.println(house.toString());
+
+
+
         return "sdfasdfad";
     }
 }
