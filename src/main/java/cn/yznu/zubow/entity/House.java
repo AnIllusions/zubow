@@ -36,7 +36,7 @@ public class House {
     private Double rent;
     /*比如 押一付三*/
     private String renttype;
-    /*租方式(0整租 1合租)*/
+    /*类型(0整租 1合租)*/
     private Integer leasehold;
     /*外键     房东姓名*/
     private String houseuserName;

@@ -7,10 +7,7 @@ import cn.yznu.zubow.util.IdDateTime;
 import cn.yznu.zubow.util.PhotoListPath;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -59,8 +56,18 @@ public class HouseController {
         houseService.addHouse(house);
         System.out.println(house.toString());
 
-
-
         return "sdfasdfad";
+    }
+
+    /**
+     * 返回 房东的房源列别
+     * @return
+     */
+    @RequestMapping("/houseUserList")
+    @ResponseBody
+    public String houseUserList(Integer page,@RequestParam(value="limit",defaultValue = "20")Integer limit, String q){
+
+
+        return null;
     }
 }
