@@ -89,7 +89,7 @@
             <a href="/user/login" class="sel">2000-3000</a>&nbsp;&nbsp;
             <a href="/user/login" class="sel">3000-5000</a>&nbsp;&nbsp;
             <div class="layui-inline">
-                <label class="layui-form-label">范围</label>
+                <label class="layui-form-label">范围 </label>
                 <div class="layui-input-inline" style="width: 100px;">
                     <input type="text" name="price_min" placeholder="￥" autocomplete="off" class="layui-input">
                 </div>
