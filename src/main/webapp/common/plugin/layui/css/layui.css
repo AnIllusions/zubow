@@ -1208,7 +1208,7 @@ a cite {
 }
 
 .layui-btn-warm {
-    background-color: #FFB800
+    background-color: #1E9FFF
 }
 
 .layui-btn-danger {
@@ -2957,7 +2957,7 @@ body .layui-table-tips .layui-layer-content {
 }
 
 .layui-tab-title .layui-this {
-    color: #000
+    color: #ffad0d
 }
 
 .layui-tab-title .layui-this:after {
