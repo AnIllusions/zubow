@@ -223,7 +223,7 @@
   <sql id="houseWhere" >
     <if test="houseSearchLimitVo!=null">
       <if test="houseSearchLimitVo.address!=null">
-         WHERE h.address=#{houseSearchLimitVo.address}
+        AND h.address=#{houseSearchLimitVo.address}
       </if>
     </if>
   </sql>
@@ -233,17 +233,26 @@
       limit ${pageQuery.limitFirst},${pageQuery.showCount}
     </if>
   </sql>
+
   <select id="findHouse" parameterType="houseQueryVo" resultMap="houseVo" >
-    SELECT h.id,h.createdate,h.`status`,h.address,h.housetype,h.area,h.floor,h.decoration,h.configuration,h.remark,h.rent,h.renttype,h.leasehold,h.houseuser_name,hi.imageurl
+    SELECT h.id,date_format(h.createdate, '%Y-%m-%d') createdate,h.`status`,h.address,h.housetype,h.area,h.floor,h.decoration,h.configuration,h.remark,h.rent,h.renttype,h.leasehold,h.houseuser_name,hi.imageurl
     FROM house h LEFT JOIN houseimage hi ON h.id = hi.house_id
-    <include refid="houseWhere" />
-    <include refid="limitWhere"/>
+    WHERE h.id IN (
+                  SELECT s.id
+                  FROM(SELECT id FROM house order by id desc
+                        <include refid="limitWhere" />
+                      ) s
+                  )
+    AND h.houseuser_name=#{houseSearchLimitVo.username,jdbcType=VARCHAR}
+                  <include refid="houseWhere" />
+
+    <!--<include refid="houseWhere" />-->
+
   </select>
 
 
-  <select id="findHouseCount" parameterType="houseQueryVo" resultType="houseResultDataVo" >
-      SELECT count(*)
-    FROM house h LEFT JOIN houseimage hi ON h.id = hi.house_id
+  <select id="findHouseCount" parameterType="houseQueryVo" resultType="Integer" >
+      SELECT count(*) FROM house h WHERE h.houseuser_name = #{houseSearchLimitVo.username,jdbcType=VARCHAR}
   </select>
 
 

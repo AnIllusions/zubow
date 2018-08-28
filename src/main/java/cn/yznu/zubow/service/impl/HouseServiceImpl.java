@@ -45,6 +45,9 @@ public class HouseServiceImpl implements HouseService {
 
     @Override
     public List<HouseResultDataVo> findHouse(HouseQueryVo houseQueryVo) {
+        
+        System.out.println("当前页 "+houseQueryVo.getPageQuery().getCurrentPage()+"    "+houseQueryVo.getPageQuery().getLimitFirst());
+        System.out.println(houseQueryVo.getPageQuery().getTotalPage());
         return  houseMapper.findHouse(houseQueryVo);
     }
 
@@ -52,5 +55,7 @@ public class HouseServiceImpl implements HouseService {
     public Integer findHouseCount(HouseQueryVo houseQueryVo) {
         return houseMapper.findHouseCount(houseQueryVo);
     }
+
+
 
 }

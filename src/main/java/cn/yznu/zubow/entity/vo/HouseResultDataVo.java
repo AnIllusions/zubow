@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 public class HouseResultDataVo {
     private String id;
-    private Date createdate;
+    private String createdate;
     /*-1已租0预定1空闲	状态*/
     private Integer status;
     private String address;

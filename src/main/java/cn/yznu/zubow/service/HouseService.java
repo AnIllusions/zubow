@@ -27,4 +27,6 @@ public interface HouseService {
     List<HouseResultDataVo> findHouse(HouseQueryVo houseQueryVo);
 
     Integer findHouseCount(HouseQueryVo houseQueryVo);
+
+
 }

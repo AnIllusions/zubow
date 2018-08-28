@@ -12,5 +12,6 @@ import lombok.Data;
 @Data
 public class HouseSearchLimitVo {
     private String address;
+    private String username;
 
 }

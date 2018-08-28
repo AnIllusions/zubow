@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class Test {
     public static void main(String[] args){
-        System.out.println(DateUtil.getTime(new Date("Thu Aug 23 00:00:00 CST 2018")));
+        System.out.println(DateUtil.getTime(new Date()));
 
     }
 }

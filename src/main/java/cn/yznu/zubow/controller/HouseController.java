@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.Date;
@@ -74,15 +75,18 @@ public class HouseController {
      * limit 当前页条数
      * @return
      */
-    @RequestMapping("/houseUserList")
+    @GetMapping("/houseUserList")
     @ResponseBody
-    public ResultData houseUserList(@RequestParam(value="page",defaultValue = "1") Integer page, @RequestParam(value="limit",defaultValue = "20")Integer limit, String q){
+    public ResultData houseUserList(String page, String limit, String q, HttpSession session){
+        System.out.println(page+"    " +limit);
         try {
-            PageQuery pageQuery = new PageQuery(page,limit);
+            PageQuery pageQuery = new PageQuery(Integer.parseInt(page),Integer.parseInt(limit));
             HouseQueryVo houseQueryVo = new HouseQueryVo();
             houseQueryVo.setPageQuery(pageQuery);
             // 查询条件
             HouseSearchLimitVo houseSearchLimitVo = new HouseSearchLimitVo();
+            User user = (User)session.getAttribute("currentUser");
+            houseSearchLimitVo.setUsername(user.getName());
             if (q!=null && !q.trim().equals("")){ //有查询条件
                 //编码转换
                 String decode = URLDecoder.decode(q,"UTF-8");
@@ -90,14 +94,9 @@ public class HouseController {
             }
             houseQueryVo.setHouseSearchLimitVo(houseSearchLimitVo);
             List<HouseResultDataVo> houseResultDataVos = houseService.findHouse(houseQueryVo);
-
-            for (int i = 0; i < houseResultDataVos.size(); i++) {
-                houseResultDataVos.get(i).setCreatedate(DateUtil.getTime(houseResultDataVos.get(i).getCreatedate()));
-                System.out.println(houseResultDataVos.get(i).toString());
-            }
-            return new ResultUtil<HouseResultDataVo>().createSuccessPageResult(houseResultDataVos,houseResultDataVos.size());
-
-
+            // 总条数
+            Integer count = houseService.findHouseCount(houseQueryVo);
+            return new ResultUtil<HouseResultDataVo>().createSuccessPageResult(houseResultDataVos,count);
         }catch (Exception e){
             e.printStackTrace();
         }

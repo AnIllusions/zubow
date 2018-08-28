@@ -51,6 +51,11 @@
     <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">删除</a>
 </script>
 
+
+<script type="text/html" id="dateTime">
+   <#-- {{new Date(d.createdate).toLocaleString() }}-->
+</script>
+
 </body>
 </html>
 <script src="/common/js/jquery.min.js" type="text/javascript"></script>
@@ -67,18 +72,19 @@
             page:true,
             cols:[[
                 {field:'id',title:'编号',width:80,sort:true,fixed:'left'},
-                {field:'createdate',title:'时间',width:100,templet:'<div>{{ layui.laytpl.toDateString(d.createDate,"yyyy-MM-dd") }}</div>'},
+                {field:'createdate',title:'时间',width:100},
                 {field:'address',title:'地点',width:100},
-                {field:'status',title:'状态',width:90,sort:true,},
-                {field:'housetype',title:'户型',width:80,sort:true,},
+                {field:'status',title:'状态',width:90,sort:true},
+                {field:'housetype',title:'户型',width:80,sort:true},
                 {field:'decoration',title:'装修风格',width:100},
                 {field:'configuration',title:'房屋配置',width:200},
-                {field:'rent',title:'租金',width:70,sort:true,},
-                {field:'renttype',title:'租金方式',width:100,sort:true,},
-                {field:'leasehold',title:'类型',width:70,sort:true,},
+                {field:'rent',title:'租金',width:70,sort:true},
+                {field:'renttype',title:'租金方式',width:100,sort:true},
+                {field:'leasehold',title:'类型',width:70,sort:true},
                 {field:'',title:'操作方式',width:200,templet:'#toolBar'}
                 /*{field:'',title:'',width:}*/
             ]],
+            limit:10,
         })
     })
 

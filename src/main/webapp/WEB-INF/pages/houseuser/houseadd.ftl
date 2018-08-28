@@ -67,6 +67,7 @@
         <div class="layui-input-block">
             <input type="checkbox" name="configuration" value="冰箱" title="冰箱">
             <input type="checkbox" name="configuration" value="空调" title="空调">
+            <input type="checkbox" name="configuration" value="电视"title="电视">
             <input type="checkbox" name="configuration" value="洗衣机"title="洗衣机">
             <input type="checkbox" name="configuration" value="热水器"title="热水器">
             <input type="checkbox" name="configuration" value="可做饭"title="可做饭">

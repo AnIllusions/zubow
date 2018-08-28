@@ -20,9 +20,14 @@ public class DateUtil {
     public static Date getTime(Date time){
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+
         String formatDate = df.format(time);
+
         Date date = null;
         try {
+            System.out.println(formatDate);
+
+
             date= format1.parse(formatDate);
             System.out.println(date);
         } catch (ParseException e) {
