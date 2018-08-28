@@ -67,12 +67,15 @@
         <div class="layui-input-block">
             <input type="checkbox" name="configuration" value="冰箱" title="冰箱">
             <input type="checkbox" name="configuration" value="空调" title="空调">
+            <input type="checkbox" name="" title="电视" lay-skin="primary" checked >
+            <label>电视</label>
             <input type="checkbox" name="configuration" value="洗衣机"title="洗衣机">
             <input type="checkbox" name="configuration" value="热水器"title="热水器">
             <input type="checkbox" name="configuration" value="可做饭"title="可做饭">
             <input type="checkbox" name="configuration" value="宽带"title="宽带">
             <input type="checkbox" name="configuration" value="床"title="床">
             <input type="checkbox" name="configuration" value="衣柜"title="衣柜">
+
         </div>
     </div>
 
