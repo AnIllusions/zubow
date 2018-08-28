@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>选房</title>
+    <link href="/common/plugin/layui/css/layui.css" rel="stylesheet">
 </head>
 <style>
-    .ulli li{
-        float: left;
-    }
+        .ulli li{
+            float: left;
+        }
     .sel:hover{
         color: orange   ;
     }
@@ -45,19 +46,19 @@
     </ul>
 </div>
 
-<div style="width:140px ;margin-left: 100px;float: left">
-    <a href="/user/login" style="color: red; font-size: 20px; line-height: 60px;">ZUBOW | 租房</a>
-</div>
+    <div style="width:140px ;margin-left: 100px;float: left">
+        <a href="/user/login" style="color: red; font-size: 20px; line-height: 60px;">ZUBOW | 租房</a>
+    </div>
 
-<div class="panel-search" style="float: right;margin-right:100px;margin-top: 40px" >
+    <div class="panel-search" style="float: right;margin-right:100px;margin-top: 40px" >
 
-    <form>
+        <form>
 
-        <input class="input-inline" type="text" size="50" style="height: 30px">
-        <input type="submit" value="搜索" class="layui-btn layui-btn-warm"
-               style="margin-left:-5px;margin-top: -3px;height: 34px" >
-    </form>
-</div>
+            <input class="input-inline" type="text" size="50" style="height: 30px">
+            <input type="submit" value="搜索" class="layui-btn layui-btn-warm"
+                   style="margin-left:-5px;margin-top: -3px;height: 34px" >
+        </form>
+    </div>
 
 
 
@@ -117,24 +118,24 @@
                     <option value="" selected>全部</option>
                 </select>
 
-                <input type="checkbox" name="" title="冰箱" lay-skin="primary" checked >
-                <label style="margin-right: 15px">冰箱</label>
-                <input type="checkbox" name="" title="空调" lay-skin="primary" checked >
-                <label style="margin-right: 15px">空调</label>
-                <input type="checkbox" name="" title="电视" lay-skin="primary" checked >
-                <label style="margin-right: 15px">电视</label>
-                <input type="checkbox" name="" title="洗衣机" lay-skin="primary" checked >
-                <label style="margin-right: 15px">洗衣机</label>
-                <input type="checkbox" name="" title="热水器" lay-skin="primary" checked >
-                <label style="margin-right: 15px">热水器</label>
-                <input type="checkbox" name="" title="可做饭" lay-skin="primary" checked >
-                <label style="margin-right: 15px">可做饭</label>
-                <input type="checkbox" name="" title="宽带" lay-skin="primary" checked >
-                <label style="margin-right: 15px">宽带</label>
-                <input type="checkbox" name="" title="床" lay-skin="primary" checked >
-                <label style="margin-right: 15px">床</label>
-                <input type="checkbox" name="" title="衣柜" lay-skin="primary" checked >
-                <label style="margin-right: 15px">衣柜</label>
+                    <input type="checkbox" name="" title="冰箱" lay-skin="primary" checked >
+                    <label style="margin-right: 15px">冰箱</label>
+                    <input type="checkbox" name="" title="空调" lay-skin="primary" checked >
+                    <label style="margin-right: 15px">空调</label>
+                    <input type="checkbox" name="" title="电视" lay-skin="primary" checked >
+                    <label style="margin-right: 15px">电视</label>
+                    <input type="checkbox" name="" title="洗衣机" lay-skin="primary" checked >
+                    <label style="margin-right: 15px">洗衣机</label>
+                    <input type="checkbox" name="" title="热水器" lay-skin="primary" checked >
+                    <label style="margin-right: 15px">热水器</label>
+                    <input type="checkbox" name="" title="可做饭" lay-skin="primary" checked >
+                    <label style="margin-right: 15px">可做饭</label>
+                    <input type="checkbox" name="" title="宽带" lay-skin="primary" checked >
+                    <label style="margin-right: 15px">宽带</label>
+                    <input type="checkbox" name="" title="床" lay-skin="primary" checked >
+                    <label style="margin-right: 15px">床</label>
+                    <input type="checkbox" name="" title="衣柜" lay-skin="primary" checked >
+                    <label style="margin-right: 15px">衣柜</label>
             </div>
 
 
@@ -150,7 +151,7 @@
 <#--<ul class="flow-default" style="height: 300px;" id="LAY_demo2"></ul>-->
 
 <#--<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">-->
-<#--<legend>图片懒加载</legend>-->
+    <#--<legend>图片懒加载</legend>-->
 <#--</fieldset>-->
 <div class="site-demo-flow" id="LAY_demo3" style="margin-left: 100px">
     <img lay-src="https://gw.alicdn.com/bao/uploaded/i2/701696736/TB2PNl5ahQa61Bjy0FhXXaalFXa_!!701696736.jpg_400x400q90.jpg?t=1535335143134">
@@ -226,5 +227,3 @@
 
     });
 </script>
-</body>
-</html>
