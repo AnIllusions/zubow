@@ -73,6 +73,7 @@
         <property name="templateLoaderPath">
             <value>/WEB-INF/pages/</value>
         </property>
+
     </bean>
 
     <!--配置freemarker视图解析器-->

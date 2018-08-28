@@ -197,4 +197,78 @@
       houseuser_name = #{houseuserName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
+  <resultMap id="houseVo" type="cn.yznu.zubow.entity.vo.HouseResultDataVo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="createdate" property="createdate" jdbcType="DATE" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="housetype" property="housetype" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="DOUBLE" />
+    <result column="floor" property="floor" jdbcType="VARCHAR" />
+    <result column="decoration" property="decoration" jdbcType="VARCHAR" />
+    <result column="configuration" property="configuration" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="rent" property="rent" jdbcType="DOUBLE" />
+    <result column="renttype" property="renttype" jdbcType="VARCHAR" />
+    <result column="leasehold" property="leasehold" jdbcType="INTEGER" />
+    <result column="houseuser_name" property="houseuserName" jdbcType="VARCHAR" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
+    <result column="leasehold" property="leasehold" jdbcType="INTEGER" />
+    <collection property="houseImageVos" ofType="cn.yznu.zubow.entity.vo.HouseImageVo">
+        <result column="imageurl" jdbcType="VARCHAR" property="imageurl"/>
+    </collection>
+  </resultMap>
+
+  <sql id="houseWhere" >
+    <if test="houseSearchLimitVo!=null">
+      <if test="houseSearchLimitVo.address!=null">
+         WHERE h.address=#{houseSearchLimitVo.address}
+      </if>
+    </if>
+  </sql>
+
+  <sql id="limitWhere">
+    <if test="pageQuery!=null">
+      limit ${pageQuery.limitFirst},${pageQuery.showCount}
+    </if>
+  </sql>
+  <select id="findHouse" parameterType="houseQueryVo" resultMap="houseVo" >
+    SELECT h.id,h.createdate,h.`status`,h.address,h.housetype,h.area,h.floor,h.decoration,h.configuration,h.remark,h.rent,h.renttype,h.leasehold,h.houseuser_name,hi.imageurl
+    FROM house h LEFT JOIN houseimage hi ON h.id = hi.house_id
+    <include refid="houseWhere" />
+    <include refid="limitWhere"/>
+  </select>
+
+
+  <select id="findHouseCount" parameterType="houseQueryVo" resultType="houseResultDataVo" >
+      SELECT count(*)
+    FROM house h LEFT JOIN houseimage hi ON h.id = hi.house_id
+  </select>
+
+
+
+
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

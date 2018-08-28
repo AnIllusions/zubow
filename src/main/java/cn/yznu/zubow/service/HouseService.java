@@ -1,6 +1,9 @@
 package cn.yznu.zubow.service;
 
 import cn.yznu.zubow.entity.House;
+import cn.yznu.zubow.entity.vo.HouseQueryVo;
+import cn.yznu.zubow.entity.vo.HouseResultDataVo;
+import cn.yznu.zubow.util.sortpage.PageQuery;
 
 import java.util.List;
 
@@ -20,4 +23,8 @@ public interface HouseService {
      * @return
      */
     int addHouse(House house);
+
+    List<HouseResultDataVo> findHouse(HouseQueryVo houseQueryVo);
+
+    Integer findHouseCount(HouseQueryVo houseQueryVo);
 }

@@ -19,8 +19,9 @@
         <div class="layui-inline">
             <input class="layui-input" height="20px" id="remark" autocomplete="off">
         </div>
-        <button class="select-on layui-btn layui-btn-sm" data-type="select"><i class="layui-icon"></i>
-        </button>
+
+        <button class="select-on layui-btn layui-btn-sm" data-type="select"><i class="layui-icon"></i> </button>
+
         <button class="layui-btn layui-btn-sm icon-position-button" id="refresh" style="float: right;"
                 data-type="reload">
             <i class="layui-icon">ဂ</i>

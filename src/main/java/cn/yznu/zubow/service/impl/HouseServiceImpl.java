@@ -2,12 +2,15 @@ package cn.yznu.zubow.service.impl;
 
 import cn.yznu.zubow.entity.House;
 import cn.yznu.zubow.entity.HouseImage;
+import cn.yznu.zubow.entity.vo.HouseQueryVo;
+import cn.yznu.zubow.entity.vo.HouseResultDataVo;
 import cn.yznu.zubow.mapper.HouseImageMapper;
 import cn.yznu.zubow.mapper.HouseMapper;
 import cn.yznu.zubow.mapper.UserMapper;
 import cn.yznu.zubow.service.HouseService;
 import cn.yznu.zubow.service.LoginService;
 import cn.yznu.zubow.util.PhotoListPath;
+import cn.yznu.zubow.util.sortpage.PageQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,6 +41,16 @@ public class HouseServiceImpl implements HouseService {
         }
         int k = houseMapper.insert(house);
         return k;
+    }
+
+    @Override
+    public List<HouseResultDataVo> findHouse(HouseQueryVo houseQueryVo) {
+        return  houseMapper.findHouse(houseQueryVo);
+    }
+
+    @Override
+    public Integer findHouseCount(HouseQueryVo houseQueryVo) {
+        return houseMapper.findHouseCount(houseQueryVo);
     }
 
 }

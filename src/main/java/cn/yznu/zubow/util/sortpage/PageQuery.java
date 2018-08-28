@@ -1,5 +1,7 @@
 package cn.yznu.zubow.util.sortpage;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,7 +10,7 @@ import java.io.Serializable;
  * @author 66495
  * @create 2018-08-26 16:09
  */
-
+@Data
 public class PageQuery implements Serializable {
     // showCount  每一页显示多少
     private int showCount;

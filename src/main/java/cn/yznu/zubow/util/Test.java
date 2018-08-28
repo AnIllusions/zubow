@@ -1,5 +1,7 @@
 package cn.yznu.zubow.util;
 
+import java.util.Date;
+
 /**
  * 测试  java Application 类(方法描述)
  *
@@ -9,9 +11,7 @@ package cn.yznu.zubow.util;
 
 public class Test {
     public static void main(String[] args){
-        long l = System.currentTimeMillis();
-        System.out.println(l);
-        long l1 = l + 1;
-        System.out.println(l1);
+        System.out.println(DateUtil.getTime(new Date("Thu Aug 23 00:00:00 CST 2018")));
+
     }
 }
