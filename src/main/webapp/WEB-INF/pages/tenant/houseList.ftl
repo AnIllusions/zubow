@@ -4,14 +4,10 @@
     <meta charset="UTF-8">
     <title>选房</title>
     <link href="/common/plugin/layui/css/layui.css" rel="stylesheet">
+    <link href="/common/css/house-list.css" rel="stylesheet">
 </head>
 <style>
-        .ulli li{
-            float: left;
-        }
-    .sel:hover{
-        color: orange   ;
-    }
+
 </style>
 <body>
 <#assign currentUser = Session["currentUser"]>
@@ -45,68 +41,100 @@
 
     </ul>
 </div>
-
-    <div style="width:140px ;margin-left: 100px;float: left">
-        <a href="/user/login" style="color: red; font-size: 20px; line-height: 60px;">ZUBOW | 租房</a>
+<div>
+    <div style="margin-left: 100px;float: left;margin-top: 20px">
+        <a href="/user/login" style="color: red; font-size: 30px; line-height: 60px;">ZUBOW | 租房</a>
     </div>
-
-    <div class="panel-search" style="float: right;margin-right:100px;margin-top: 40px" >
-
+    <div class="panel-search" style="float: right;margin-right:100px;margin-top: 40px">
         <form>
-
-            <input class="input-inline" type="text" size="50" style="height: 30px">
+            <input class="input-inline" type="text" size="75" style="height: 30px">
             <input type="submit" value="搜索" class="layui-btn layui-btn-warm"
-                   style="margin-left:-5px;margin-top: -3px;height: 34px" >
+                   style="margin-left:-5px;margin-top: -3px;height: 34px;background-color: #007DDB">
         </form>
     </div>
+</div>
 
 
-
-<div class="layui-tab layui-tab-card" style="margin-top: 100px;width: 1200px;margin-left: 100px;margin-right: auto">
-
-
-
-
-
-
+<div class="layui-tab layui-tab-card" style="margin-top: 100px;margin-left: 100px;margin-right: 100px">
     <ul class="layui-tab-title">
-        <li class="layui-this">租房类型</li>
-        <li>租金</li>
-        <li>房型</li>
-        <li>更多筛选</li>
+        <li class="layui-this">租房</li>
     </ul>
     <div class="layui-tab-content" style="height: 50%;">
         <div class="layui-tab-item layui-show">
-            <a href="/user/login" class="sel" >整租</a>&nbsp;&nbsp;
-            <a href="/user/login" class="sel">合租</a>&nbsp;&nbsp;
-        </div>
-        <div class="layui-tab-item">
-            <a href="/user/login" class="sel" >500以下</a>&nbsp;&nbsp;
-            <a href="/user/login" class="sel">500-800</a>&nbsp;&nbsp;
-            <a href="/user/login" class="sel">800-1000</a>&nbsp;&nbsp;
-            <a href="/user/login" class="sel">1000-1500</a>&nbsp;&nbsp;
-            <a href="/user/login" class="sel">1500-2000</a>&nbsp;&nbsp;
-            <a href="/user/login" class="sel">2000-3000</a>&nbsp;&nbsp;
-            <a href="/user/login" class="sel">3000-5000</a>&nbsp;&nbsp;
-            <div class="layui-inline">
-                <label class="layui-form-label">范围 </label>
-                <div class="layui-input-inline" style="width: 100px;">
-                    <input type="text" name="price_min" placeholder="￥" autocomplete="off" class="layui-input">
-                </div>
-                <div class="layui-form-mid">-</div>
-                <div class="layui-input-inline" style="width: 100px;">
-                    <input type="text" name="price_max" placeholder="￥" autocomplete="off" class="layui-input">
-                </div>
-                <input type="submit" value="搜索" class="layui-btn layui-btn-warm"
-                       style="margin-left:5px;margin-top: -2px;height: 36px" >
-            </div>
-        </div>
-        <div class="layui-tab-item">
-            <a href="/user/login" class="sel" >一居室</a>&nbsp;&nbsp;
-            <a href="/user/login" class="sel">二居室</a>&nbsp;&nbsp;
-            <a href="/user/login" class="sel">三居室</a>&nbsp;&nbsp;
-            <a href="/user/login" class="sel">四居室</a>&nbsp;&nbsp;
-            <a href="/user/login" class="sel">五居室</a>&nbsp;&nbsp;
+            <dl>
+                <dt>租房类型:</dt>
+                <dd>
+                    <a href="/user/login">整租</a>&nbsp;&nbsp;
+                    <a href="/user/login">合租</a>&nbsp;&nbsp;
+                </dd>
+            </dl>
+            <dl>
+                <dt>租金:</dt>
+                <dd>
+                    <a href="/user/login">500以下</a>&nbsp;&nbsp;
+                    <a href="/user/login">500-800</a>&nbsp;&nbsp;
+                    <a href="/user/login">800-1000</a>&nbsp;&nbsp;
+                    <a href="/user/login">1000-1500</a>&nbsp;&nbsp;
+                    <a href="/user/login">1500-2000</a>&nbsp;&nbsp;
+                    <a href="/user/login">2000-3000</a>&nbsp;&nbsp;
+                    <a href="/user/login">3000-5000</a>&nbsp;&nbsp;
+                    <div class="layui-inline">
+                        <label class="layui-form-label">范围 </label>
+                        <div class="layui-input-inline" style="width: 100px;">
+                            <input type="text" name="price_min" placeholder="￥" autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-form-mid">-</div>
+                        <div class="layui-input-inline" style="width: 100px;">
+                            <input type="text" name="price_max" placeholder="￥" autocomplete="off" class="layui-input">
+                        </div>
+                        <input type="submit" value="搜索" class="layui-btn layui-btn-warm"
+                               style="margin-left:5px;margin-top: -2px;height: 36px">
+                    </div>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>房型:</dt>
+                <dd>
+                    <a href="/user/login">一居室</a>&nbsp;&nbsp;
+                    <a href="/user/login">二居室</a>&nbsp;&nbsp;
+                    <a href="/user/login">三居室</a>&nbsp;&nbsp;
+                    <a href="/user/login">四居室</a>&nbsp;&nbsp;
+                    <a href="/user/login">五居室</a>&nbsp;&nbsp;
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>更多筛选:</dt>
+                <dd>
+                    <select name="city" lay-verify="" lay-search style="margin-right: 20px">
+                        <option value="普通住宅">普通住宅</option>
+                        <option value="公寓">公寓</option>
+                        <option value="别墅">别墅</option>
+                        <option value="平房">平房</option>
+                        <option value="" selected>全部</option>
+                    </select>
+
+                    <input type="checkbox" name="" title="冰箱" lay-skin="primary" checked>
+                    <label style="margin-right: 15px">冰箱</label>
+                    <input type="checkbox" name="" title="空调" lay-skin="primary" checked>
+                    <label style="margin-right: 15px">空调</label>
+                    <input type="checkbox" name="" title="电视" lay-skin="primary" checked>
+                    <label style="margin-right: 15px">电视</label>
+                    <input type="checkbox" name="" title="洗衣机" lay-skin="primary" checked>
+                    <label style="margin-right: 15px">洗衣机</label>
+                    <input type="checkbox" name="" title="热水器" lay-skin="primary" checked>
+                    <label style="margin-right: 15px">热水器</label>
+                    <input type="checkbox" name="" title="可做饭" lay-skin="primary" checked>
+                    <label style="margin-right: 15px">可做饭</label>
+                    <input type="checkbox" name="" title="宽带" lay-skin="primary" checked>
+                    <label style="margin-right: 15px">宽带</label>
+                    <input type="checkbox" name="" title="床" lay-skin="primary" checked>
+                    <label style="margin-right: 15px">床</label>
+                    <input type="checkbox" name="" title="衣柜" lay-skin="primary" checked>
+                    <label style="margin-right: 15px">衣柜</label>
+                </dd>
+            </dl>
         </div>
         <div class="layui-tab-item">
             <div>房屋类型：
@@ -117,60 +145,75 @@
                     <option value="平房">平房</option>
                     <option value="" selected>全部</option>
                 </select>
-
-                    <input type="checkbox" name="" title="冰箱" lay-skin="primary" checked >
-                    <label style="margin-right: 15px">冰箱</label>
-                    <input type="checkbox" name="" title="空调" lay-skin="primary" checked >
-                    <label style="margin-right: 15px">空调</label>
-                    <input type="checkbox" name="" title="电视" lay-skin="primary" checked >
-                    <label style="margin-right: 15px">电视</label>
-                    <input type="checkbox" name="" title="洗衣机" lay-skin="primary" checked >
-                    <label style="margin-right: 15px">洗衣机</label>
-                    <input type="checkbox" name="" title="热水器" lay-skin="primary" checked >
-                    <label style="margin-right: 15px">热水器</label>
-                    <input type="checkbox" name="" title="可做饭" lay-skin="primary" checked >
-                    <label style="margin-right: 15px">可做饭</label>
-                    <input type="checkbox" name="" title="宽带" lay-skin="primary" checked >
-                    <label style="margin-right: 15px">宽带</label>
-                    <input type="checkbox" name="" title="床" lay-skin="primary" checked >
-                    <label style="margin-right: 15px">床</label>
-                    <input type="checkbox" name="" title="衣柜" lay-skin="primary" checked >
-                    <label style="margin-right: 15px">衣柜</label>
+                <input type="checkbox" name="" title="冰箱" lay-skin="primary">
+                <label style="margin-right: 15px">冰箱</label>
+                <input type="checkbox" name="" title="空调" lay-skin="primary">
+                <label style="margin-right: 15px">空调</label>
+                <input type="checkbox" name="" title="电视" lay-skin="primary">
+                <label style="margin-right: 15px">电视</label>
+                <input type="checkbox" name="" title="洗衣机" lay-skin="primary">
+                <label style="margin-right: 15px">洗衣机</label>
+                <input type="checkbox" name="" title="热水器" lay-skin="primary">
+                <label style="margin-right: 15px">热水器</label>
+                <input type="checkbox" name="" title="可做饭" lay-skin="primary">
+                <label style="margin-right: 15px">可做饭</label>
+                <input type="checkbox" name="" title="宽带" lay-skin="primary">
+                <label style="margin-right: 15px">宽带</label>
+                <input type="checkbox" name="" title="床" lay-skin="primary">
+                <label style="margin-right: 15px">床</label>
+                <input type="checkbox" name="" title="衣柜" lay-skin="primary">
+                <label style="margin-right: 15px">衣柜</label>
             </div>
-
-
-
         </div>
     </div>
 </div>
 <hr class="layui-bg-red" style="margin-left: 100px;margin-right: 100px;">
 
-
-
-
 <#--<ul class="flow-default" style="height: 300px;" id="LAY_demo2"></ul>-->
-
 <#--<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">-->
-    <#--<legend>图片懒加载</legend>-->
+<#--<legend>图片懒加载</legend>-->
 <#--</fieldset>-->
-<div class="site-demo-flow" id="LAY_demo3" style="margin-left: 100px">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i2/701696736/TB2PNl5ahQa61Bjy0FhXXaalFXa_!!701696736.jpg_400x400q90.jpg?t=1535335143134">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i2/162734861/TB2V5rsX_gc61BjSZFkXXcTkFXa_!!162734861.jpg_400x400q90.jpg?t=1535335143134">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i4/69476562/TB2htq4XTka61BjSszfXXXN8pXa_!!69476562.jpg_400x400q90.jpg?t=1535335143134">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i1/180558071/TB2sy6jXMQc61BjSZFGXXa1DFXa_!!180558071.jpg_400x400q90.jpg?t=1535335143134">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i2/701696736/TB2PNl5ahQa61Bjy0FhXXaalFXa_!!701696736.jpg_400x400q90.jpg?t=1535335143134">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i3/285892163/TB2qu2HX9Zb61BjSZPfXXaU.pXa_!!285892163.jpg_400x400q90.jpg?t=1535335143134">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i2/704998060/TB2S.gAXTgc61BjSZFkXXcTkFXa_!!704998060.jpg_400x400q90.jpg?t=1535335143134">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i3/117202952/TB25lckX_AX61Bjy0FcXXaSlFXa_!!117202952.jpg_400x400q90.jpg?t=1535335143134">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i2/162734861/TB2qijoX9Zb61BjSZPfXXaU.pXa_!!162734861.jpg_400x400q90.jpg?t=1535335143134">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i3/96216586/TB2S7EfXHMc61BjSZFFXXaDLFXa_!!96216586.jpg_400x400q90.jpg?t=1535335143134">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i8/TB1jSSFNFXXXXcoXFXXYXGcGpXX_M2.SS2_400x400q90.jpg?t=1535335143134">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i2/162734861/TB2ylbsX37c61BjSZFKXXb6hFXa_!!162734861.jpg_400x400q90.jpg?t=1535335143134">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i2/117202952/TB2FdyZajUd61BjSZPcXXc6hXXa_!!117202952.jpg_400x400q90.jpg?t=1535335143134">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i4/777105914/TB2t.qbXZwb61Bjy0FfXXXvlpXa_!!777105914.jpg_400x400q90.jpg?t=1535335143134">
-    <img lay-src="https://gw.alicdn.com/bao/uploaded/i4/TB1XzupNFXXXXcpXXXXXXXXXXXX_!!0-item_pic.jpg_400x400q90.jpg?t=1535335143134">
-</div>
+<div id="house_list" class="site-demo-flow main">
 
+    <div class="house-item">
+        <a class="img" href="javascript:;">
+            <img src="/images/upload/1534314370360/1535508281781.jpg" width="180px" height="135px">
+        </a>
+    <#-- 房屋详细信息 -->
+        <div class="zu-info">
+        <#--标题-->
+            <h3><a target="_blank" title="某某房子" href="javascript:;">某某房子</a></h3>
+            <p class="details-item">三室一厅
+                <span>|</span>86平米
+                <span>|</span>11/33层
+                <i class="iicon layui-icon layui-icon-username">士大夫</i>
+            </p>
+            <address class="details-item">
+                <a href="javascript:;">九龙坡</a>
+            </address>
+            <p class="details-item clearfix">
+                <b class="cls-1">整租</b>
+                <span class="cls-2">押一付三</span>
+            </p>
+
+        </div>
+    <#-- 价格 -->
+        <div class="zu-side">
+            <p>
+                <strong>1700</strong> 元/月
+            </p>
+        </div>
+    </div>
+    <#--流加载文章列表-->
+</div>
+<div id="house_list" class="site-demo-flow main-adv">
+    <br><br><br>
+    <h1 style="text-align: center">广告位</h1>
+    <div class="adv">
+        <p>
+        </p>
+    </div>
+</div>
 
 
 </body>
@@ -178,52 +221,38 @@
 <script src="/common/plugin/layui/layui.all.js" charset="utf-8"></script>
 <script src="/common/js/jquery.min.js" type="text/javascript"></script>
 <script src="/common/plugin/layui/layui.js" charset="utf-8"></script>
+<script src="/common/js/loadhouse.js" charset="utf-8"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
-    layui.use('flow', function(){
+    layui.use('flow', function () {
         var flow = layui.flow;
 
+        //获取url参数  返回参数查询部分
+        var search=location.search;
+        var data={};
+        if(search!=""){
+            data = getParams(search);
+        }
+
+        //流加载列表
         flow.load({
-            elem: '#LAY_demo1' //流加载容器
-            ,scrollElem: '#LAY_demo1' //滚动条所在元素，一般不用填，此处只是演示需要。
-            ,done: function(page, next){ //执行下一页的回调
-
-                //模拟数据插入
-                setTimeout(function(){
-                    var lis = [];
-                    for(var i = 0; i < 8; i++){
-                        lis.push('<li>'+ ( (page-1)*8 + i + 1 ) +'</li>')
-                    }
-
-                    //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
-                    //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
-                    next(lis.join(''), page < 10); //假设总页数为 10
-                }, 500);
-            }
-        });
-
-        flow.load({
-            elem: '#LAY_demo2' //流加载容器
-            ,scrollElem: '#LAY_demo2' //滚动条所在元素，一般不用填，此处只是演示需要。
-            ,isAuto: false
-            ,isLazyimg: true
-            ,done: function(page, next){ //加载下一页
-                //模拟插入
-                setTimeout(function(){
-                    var lis = [];
-                    for(var i = 0; i < 6; i++){
-                        lis.push('<li><img lay-src="//s17.mogucdn.com/p2/161011/upload_279h87jbc9l0hkl54djjjh42dc7i1_800x480.jpg?v='+ ( (page-1)*6 + i + 1 ) +'"></li>')
-                    }
-                    next(lis.join(''), page < 6); //假设总页数为 6
-                }, 500);
-            }
-        });
-
-        //按屏加载图片
-        flow.lazyimg({
-            elem: '#LAY_demo3 img'
-            ,scrollElem: '#LAY_demo3' //一般不用设置，此处只是演示需要。
+            elem: "#house_list",
+            done: function (page, next) {
+                showArticle(page, next, data);
+            },
+            isAuto: false
         });
 
     });
+
+    function getParams(search){
+        var params = search.substr(1);
+        var paramArr = params.split("&");
+        var data={};
+        paramArr.forEach(function(val,key){
+            var param = val.split("=");
+            data[param[0]]=param[1];
+        });
+        return data;
+    }
 </script>

@@ -62,7 +62,9 @@
                 success: function (infor) {
                     if (infor.flag) {
                         $('#form1').hide();
-                        $('#msg').append("<h1 style='text-align: center'>"+infor.msg+"</h1><br>"+"<h3 style='text-align: center'><i class=\"layui-btn layui-btn-danger\"><a href='/user/login' target=_parent>请重新登陆</a></i></h3>")
+                        /*$('#msg').append("<h1 style='text-align: center'>"+infor.msg+"</h1><br>"+"<h3 style='text-align: center'><i class=\"layui-btn layui-btn-danger\"><a href='/user/login' target=_parent>请重新登陆</a></i></h3>")*/
+                       /* $(window).attr('_blank','/user/goindex');*/
+                        window.open("/user/goindex","_parent")
                     } else {
                         $('#form1').hide();
                     }

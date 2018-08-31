@@ -12,9 +12,23 @@
 <#assign currentUser = Session["currentUser"]>
 <form class="layui-form" action="/house/houseAdd" method="post">
     <div class="layui-form-item">
+        <label class="layui-form-label">城市</label>
+        <div class="layui-input-block" style="width: 400px">
+            <select name="city" lay-verify="required">
+                <option value="南岸区">南岸区</option>
+                <option value="渝中区">渝中区</option>
+                <option value="万州区">万州区</option>
+                <option value="涪陵区">涪陵区</option>
+                <option value="大渡口区">大渡口区</option>
+                <option value="江北区">江北区</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
         <label class="layui-form-label">地址</label>
         <div class="layui-input-block">
-            <input type="text" name="address" required  lay-verify="required" placeholder="请输入地址" autocomplete="off" class="layui-input">
+            <input type="text" name="address" required lay-verify="required" placeholder="请输入地址" autocomplete="off"
+                   class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
@@ -32,7 +46,8 @@
     <div class="layui-form-item">
         <label class="layui-form-label">面积</label>
         <div class="layui-input-inline">
-            <input type="title" name="area" required lay-verify="number" placeholder="请输入面积" autocomplete="off" class="layui-input">
+            <input type="title" name="area" required lay-verify="number" placeholder="请输入面积" autocomplete="off"
+                   class="layui-input">
         </div>
         <div class="layui-form-mid layui-word-aux">㎡</div>
     </div>
@@ -46,7 +61,8 @@
     <div class="layui-form-item">
         <label class="layui-form-label">租金</label>
         <div class="layui-input-inline">
-            <input type="title" name="rent" required lay-verify="number" placeholder="请输入租金" autocomplete="off" class="layui-input">
+            <input type="title" name="rent" required lay-verify="number" placeholder="请输入租金" autocomplete="off"
+                   class="layui-input">
         </div>
         <div class="layui-form-mid layui-word-aux">元</div>
     </div>
@@ -67,13 +83,13 @@
         <div class="layui-input-block">
             <input type="checkbox" name="configuration" value="冰箱" title="冰箱">
             <input type="checkbox" name="configuration" value="空调" title="空调">
-            <input type="checkbox" name="configuration" value="电视"title="电视">
-            <input type="checkbox" name="configuration" value="洗衣机"title="洗衣机">
-            <input type="checkbox" name="configuration" value="热水器"title="热水器">
-            <input type="checkbox" name="configuration" value="可做饭"title="可做饭">
-            <input type="checkbox" name="configuration" value="宽带"title="宽带">
-            <input type="checkbox" name="configuration" value="床"title="床">
-            <input type="checkbox" name="configuration" value="衣柜"title="衣柜">
+            <input type="checkbox" name="configuration" value="电视" title="电视">
+            <input type="checkbox" name="configuration" value="洗衣机" title="洗衣机">
+            <input type="checkbox" name="configuration" value="热水器" title="热水器">
+            <input type="checkbox" name="configuration" value="可做饭" title="可做饭">
+            <input type="checkbox" name="configuration" value="宽带" title="宽带">
+            <input type="checkbox" name="configuration" value="床" title="床">
+            <input type="checkbox" name="configuration" value="衣柜" title="衣柜">
         </div>
     </div>
 
@@ -108,9 +124,9 @@
         <label class="layui-form-label"></label>
         <div class="layui-input-block">
             <blockquote class="layui-elem-quote layui-quote-nm" style="overflow: hidden;height: 100px">
-              <div class="layui-upload-list" id="demo2">
-                  预览
-              </div>
+                <div class="layui-upload-list" id="demo2">
+                    预览
+                </div>
             </blockquote>
         </div>
     </div>
@@ -134,51 +150,32 @@
 
 </body>
 </html>
-<script src="/common/plugin/layui/layui.all.js" charset="utf-8"></script>
+<script src="/common/js/area.js" type="text/javascript" charset="utf-8"></script>
 <script src="/common/js/jquery.min.js" type="text/javascript"></script>
+<script src="/common/plugin/layui/layui.all.js" charset="utf-8"></script>
 <script>
+
+
     //Demo
-    layui.use(['upload','form','layer'], function(){
+    layui.use(['upload', 'form', 'layer'], function () {
         var upload = layui.upload;
         var form = layui.form;
         var $ = layui.jquery;
         var layer = layui.layer;
-
-        //执行实例
         //多图片上传
         upload.render({
             elem: '#upload_picture'
-            ,url: '/house/pictureUp'
-            ,multiple: true
-            ,before: function(obj){
+            , url: '/house/pictureUp'
+            , multiple: true
+            , before: function (obj) {
                 //预读本地文件示例，不支持ie8
-                obj.preview(function(index, file, result){
-                    $('#demo2').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img"  style="height: 100px;width: 70px"  >')
+                obj.preview(function (index, file, result) {
+                    $('#demo2').append('<img src="' + result + '" alt="' + file.name + '" class="layui-upload-img"  style="height: 100px;width: 70px"  >')
                 });
             }
-            ,done: function(res){
+            , done: function (res) {
                 layer.msg(res.msg);
             }
         });
-/*
-
-        form.on('submit(addHouse)',function (data) {
-            $.ajax({
-                url:'/house/houseAdd',
-                type:'post',
-                data:data,
-                dataType:'json',
-                success:function (infor) {
-
-                }
-            })
-        })
-*/
-
-
-
-
-
-
     });
 </script>

@@ -34,10 +34,7 @@
             <i class="layui-icon">&#xe608;</i>新增
         </button>
         <button class="layui-btn layui-btn-normal" data-type="update">
-            <i class="layui-icon">&#xe642;</i>编辑
-        </button>
-        <button class="layui-btn layui-btn-normal" data-type="detail">
-            <i class="layui-icon">&#xe605;</i>查看
+            <i class="layui-icon">&#xe642;</i>删除
         </button>
     </div>
 </div>
@@ -52,8 +49,12 @@
 </script>
 
 
-<script type="text/html" id="dateTime">
-   <#-- {{new Date(d.createdate).toLocaleString() }}-->
+<script type="text/html" id="photoBar">
+    {{# if(d.houseImageVos.length==0) {   }}
+    未上传
+    {{# }else{}}
+   <img src='{{d.houseImageVos[0].imageurl}}' width="50" height="25">
+    {{#} }}
 </script>
 
 </body>
@@ -71,11 +72,12 @@
             url:'/house/houseUserList',
             page:true,
             cols:[[
-                {field:'id',title:'编号',width:80,sort:true,fixed:'left'},
-                {field:'createdate',title:'时间',width:100},
+                {type:'checkbox'},
+                {field:'houseImageVos',title:'图片',width:120,templet:'#photoBar'},
+                {field:'createdate',title:'时间',width:120},
                 {field:'address',title:'地点',width:100},
                 {field:'status',title:'状态',width:90,sort:true},
-                {field:'housetype',title:'户型',width:80,sort:true},
+                {field:'housetype',title:'户型',width:100,sort:true},
                 {field:'decoration',title:'装修风格',width:100},
                 {field:'configuration',title:'房屋配置',width:200},
                 {field:'rent',title:'租金',width:70,sort:true},
@@ -84,7 +86,7 @@
                 {field:'',title:'操作方式',width:200,templet:'#toolBar'}
                 /*{field:'',title:'',width:}*/
             ]],
-            limit:10,
+            limit:10
         })
     })
 

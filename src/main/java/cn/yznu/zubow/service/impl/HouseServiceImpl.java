@@ -56,6 +56,10 @@ public class HouseServiceImpl implements HouseService {
         return houseMapper.findHouseCount(houseQueryVo);
     }
 
+    @Override
+    public HouseResultDataVo findHouseById(String id) {
+        return houseMapper.selectByPrimaryKey(id);
+    }
 
 
 }

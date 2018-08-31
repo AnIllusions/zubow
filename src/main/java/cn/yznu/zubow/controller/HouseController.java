@@ -14,6 +14,7 @@ import cn.yznu.zubow.util.sortpage.ResultData;
 import cn.yznu.zubow.util.sortpage.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -56,7 +57,6 @@ public class HouseController {
     }
 
     @PostMapping("/houseAdd")
-    @ResponseBody
     public String houseAdd(House house,HttpServletRequest request) throws IOException {
         house.setId(IdDateTime.IdTime(new Date()));
         house.setCreatedate(new Date());
@@ -65,7 +65,7 @@ public class HouseController {
         houseService.addHouse(house);
         System.out.println(house.toString());
 
-        return "sdfasdfad";
+        return "houseuser/houseList";
     }
 
     /**
@@ -100,6 +100,24 @@ public class HouseController {
         }catch (Exception e){
             e.printStackTrace();
         }
+        return null;
+    }
+
+    @RequestMapping("/house/{id}")
+    public String findHouseById(@PathVariable("id") String id, Model model, HttpServletRequest request){
+        try {
+            if(id==null || id.trim().equals("")){
+                return "/404";
+            }
+            HouseResultDataVo houseResultDataVo = houseService.findHouseById(id);
+            if (houseResultDataVo == null){
+                return "/404";
+            }
+            model.addAttribute("house",houseResultDataVo);
+        }catch (Exception e){
+            throw new RuntimeException("你在怎么着。。。。没网了。。。。");
+        }
+
         return null;
     }
 }

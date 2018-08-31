@@ -16,7 +16,7 @@ public interface HouseMapper {
 
     int insertSelective(House record);
 
-    House selectByPrimaryKey(String id);
+    HouseResultDataVo selectByPrimaryKey(String id);
 
     int updateByPrimaryKeySelective(House record);
 

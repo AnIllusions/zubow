@@ -39,6 +39,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                 out.flush();
                 return false;
             }
+            httpServletResponse.setStatus(302);
             httpServletResponse.sendRedirect("/user/login");
             return false;
         } else {

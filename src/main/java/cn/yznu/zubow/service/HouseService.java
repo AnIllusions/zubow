@@ -29,4 +29,5 @@ public interface HouseService {
     Integer findHouseCount(HouseQueryVo houseQueryVo);
 
 
+    HouseResultDataVo findHouseById(String id);
 }

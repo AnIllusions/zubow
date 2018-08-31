@@ -1,189 +1,220 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.yznu.zubow.mapper.HouseMapper" >
-  <resultMap id="BaseResultMap" type="cn.yznu.zubow.entity.House" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="createdate" property="createdate" jdbcType="DATE" />
-    <result column="status" property="status" jdbcType="INTEGER" />
-    <result column="address" property="address" jdbcType="VARCHAR" />
-    <result column="housetype" property="housetype" jdbcType="VARCHAR" />
-    <result column="area" property="area" jdbcType="DOUBLE" />
-    <result column="floor" property="floor" jdbcType="VARCHAR" />
-    <result column="decoration" property="decoration" jdbcType="VARCHAR" />
-    <result column="configuration" property="configuration" jdbcType="VARCHAR" />
-    <result column="remark" property="remark" jdbcType="VARCHAR" />
-    <result column="rent" property="rent" jdbcType="DOUBLE" />
-    <result column="renttype" property="renttype" jdbcType="VARCHAR" />
-    <result column="leasehold" property="leasehold" jdbcType="INTEGER" />
-    <result column="houseuser_name" property="houseuserName" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id, createdate, status, address, housetype, area, floor, decoration, configuration, 
+<mapper namespace="cn.yznu.zubow.mapper.HouseMapper">
+    <!-- 原始数据-->
+    <resultMap id="BaseResultMap" type="cn.yznu.zubow.entity.House">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="createdate" property="createdate" jdbcType="DATE"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="city" property="city" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="housetype" property="housetype" jdbcType="VARCHAR"/>
+        <result column="area" property="area" jdbcType="DOUBLE"/>
+        <result column="floor" property="floor" jdbcType="VARCHAR"/>
+        <result column="decoration" property="decoration" jdbcType="VARCHAR"/>
+        <result column="configuration" property="configuration" jdbcType="VARCHAR"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="rent" property="rent" jdbcType="DOUBLE"/>
+        <result column="renttype" property="renttype" jdbcType="VARCHAR"/>
+        <result column="leasehold" property="leasehold" jdbcType="INTEGER"/>
+        <result column="houseuser_name" property="houseuserName" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!--返回 特定格式数据-->
+    <resultMap id="houseVo" type="cn.yznu.zubow.entity.vo.HouseResultDataVo">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="createdate" property="createdate" jdbcType="DATE"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="city" property="city" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="housetype" property="housetype" jdbcType="VARCHAR"/>
+        <result column="area" property="area" jdbcType="DOUBLE"/>
+        <result column="floor" property="floor" jdbcType="VARCHAR"/>
+        <result column="decoration" property="decoration" jdbcType="VARCHAR"/>
+        <result column="configuration" property="configuration" jdbcType="VARCHAR"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="rent" property="rent" jdbcType="DOUBLE"/>
+        <result column="renttype" property="renttype" jdbcType="VARCHAR"/>
+        <result column="leasehold" property="leasehold" jdbcType="INTEGER"/>
+        <result column="houseuser_name" property="houseuserName" jdbcType="VARCHAR"/>
+        <result column="img" property="img" jdbcType="VARCHAR"/>
+        <result column="leasehold" property="leasehold" jdbcType="INTEGER"/>
+        <collection property="houseImageVos" ofType="cn.yznu.zubow.entity.vo.HouseImageVo">
+            <result column="imageurl" jdbcType="VARCHAR" property="imageurl"/>
+        </collection>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id, createdate, status, city, address, housetype, area, floor, decoration, configuration,
     remark, rent, renttype, leasehold, houseuser_name
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from house
-    where id = #{id,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from house
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="cn.yznu.zubow.entity.House" >
-    insert into house (id, createdate, status, 
+    <insert id="insert" parameterType="cn.yznu.zubow.entity.House">
+    insert into house (id, createdate, status, city,
       address, housetype, area, 
       floor, decoration, configuration, 
       remark, rent, renttype, 
       leasehold, houseuser_name)
     values (#{id,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE}, #{status,jdbcType=INTEGER}, 
-      #{address,jdbcType=VARCHAR}, #{housetype,jdbcType=VARCHAR}, #{area,jdbcType=DOUBLE}, 
+      #{city,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{housetype,jdbcType=VARCHAR}, #{area,jdbcType=DOUBLE},
       #{floor,jdbcType=VARCHAR}, #{decoration,jdbcType=VARCHAR}, #{configuration,jdbcType=VARCHAR}, 
       #{remark,jdbcType=VARCHAR}, #{rent,jdbcType=DOUBLE}, #{renttype,jdbcType=VARCHAR}, 
       #{leasehold,jdbcType=INTEGER}, #{houseuserName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.yznu.zubow.entity.House" >
-    insert into house
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="createdate != null" >
-        createdate,
-      </if>
-      <if test="status != null" >
-        status,
-      </if>
-      <if test="address != null" >
-        address,
-      </if>
-      <if test="housetype != null" >
-        housetype,
-      </if>
-      <if test="area != null" >
-        area,
-      </if>
-      <if test="floor != null" >
-        floor,
-      </if>
-      <if test="decoration != null" >
-        decoration,
-      </if>
-      <if test="configuration != null" >
-        configuration,
-      </if>
-      <if test="remark != null" >
-        remark,
-      </if>
-      <if test="rent != null" >
-        rent,
-      </if>
-      <if test="renttype != null" >
-        renttype,
-      </if>
-      <if test="leasehold != null" >
-        leasehold,
-      </if>
-      <if test="houseuserName != null" >
-        houseuser_name,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="createdate != null" >
-        #{createdate,jdbcType=DATE},
-      </if>
-      <if test="status != null" >
-        #{status,jdbcType=INTEGER},
-      </if>
-      <if test="address != null" >
-        #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="housetype != null" >
-        #{housetype,jdbcType=VARCHAR},
-      </if>
-      <if test="area != null" >
-        #{area,jdbcType=DOUBLE},
-      </if>
-      <if test="floor != null" >
-        #{floor,jdbcType=VARCHAR},
-      </if>
-      <if test="decoration != null" >
-        #{decoration,jdbcType=VARCHAR},
-      </if>
-      <if test="configuration != null" >
-        #{configuration,jdbcType=VARCHAR},
-      </if>
-      <if test="remark != null" >
-        #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="rent != null" >
-        #{rent,jdbcType=DOUBLE},
-      </if>
-      <if test="renttype != null" >
-        #{renttype,jdbcType=VARCHAR},
-      </if>
-      <if test="leasehold != null" >
-        #{leasehold,jdbcType=INTEGER},
-      </if>
-      <if test="houseuserName != null" >
-        #{houseuserName,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
+    <insert id="insertSelective" parameterType="cn.yznu.zubow.entity.House">
+        insert into house
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdate != null">
+                createdate,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="housetype != null">
+                housetype,
+            </if>
+            <if test="area != null">
+                area,
+            </if>
+            <if test="floor != null">
+                floor,
+            </if>
+            <if test="decoration != null">
+                decoration,
+            </if>
+            <if test="configuration != null">
+                configuration,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="rent != null">
+                rent,
+            </if>
+            <if test="renttype != null">
+                renttype,
+            </if>
+            <if test="leasehold != null">
+                leasehold,
+            </if>
+            <if test="houseuserName != null">
+                houseuser_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdate != null">
+                #{createdate,jdbcType=DATE},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="housetype != null">
+                #{housetype,jdbcType=VARCHAR},
+            </if>
+            <if test="area != null">
+                #{area,jdbcType=DOUBLE},
+            </if>
+            <if test="floor != null">
+                #{floor,jdbcType=VARCHAR},
+            </if>
+            <if test="decoration != null">
+                #{decoration,jdbcType=VARCHAR},
+            </if>
+            <if test="configuration != null">
+                #{configuration,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="rent != null">
+                #{rent,jdbcType=DOUBLE},
+            </if>
+            <if test="renttype != null">
+                #{renttype,jdbcType=VARCHAR},
+            </if>
+            <if test="leasehold != null">
+                #{leasehold,jdbcType=INTEGER},
+            </if>
+            <if test="houseuserName != null">
+                #{houseuserName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
 
-  <update id="updateByPrimaryKeySelective" parameterType="cn.yznu.zubow.entity.House" >
-    update house
-    <set >
-      <if test="createdate != null" >
-        createdate = #{createdate,jdbcType=DATE},
-      </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=INTEGER},
-      </if>
-      <if test="address != null" >
-        address = #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="housetype != null" >
-        housetype = #{housetype,jdbcType=VARCHAR},
-      </if>
-      <if test="area != null" >
-        area = #{area,jdbcType=DOUBLE},
-      </if>
-      <if test="floor != null" >
-        floor = #{floor,jdbcType=VARCHAR},
-      </if>
-      <if test="decoration != null" >
-        decoration = #{decoration,jdbcType=VARCHAR},
-      </if>
-      <if test="configuration != null" >
-        configuration = #{configuration,jdbcType=VARCHAR},
-      </if>
-      <if test="remark != null" >
-        remark = #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="rent != null" >
-        rent = #{rent,jdbcType=DOUBLE},
-      </if>
-      <if test="renttype != null" >
-        renttype = #{renttype,jdbcType=VARCHAR},
-      </if>
-      <if test="leasehold != null" >
-        leasehold = #{leasehold,jdbcType=INTEGER},
-      </if>
-      <if test="houseuserName != null" >
-        houseuser_name = #{houseuserName,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="cn.yznu.zubow.entity.House" >
+    <update id="updateByPrimaryKeySelective" parameterType="cn.yznu.zubow.entity.House">
+        update house
+        <set>
+            <if test="createdate != null">
+                createdate = #{createdate,jdbcType=DATE},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="city != null">
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="housetype != null">
+                housetype = #{housetype,jdbcType=VARCHAR},
+            </if>
+            <if test="area != null">
+                area = #{area,jdbcType=DOUBLE},
+            </if>
+            <if test="floor != null">
+                floor = #{floor,jdbcType=VARCHAR},
+            </if>
+            <if test="decoration != null">
+                decoration = #{decoration,jdbcType=VARCHAR},
+            </if>
+            <if test="configuration != null">
+                configuration = #{configuration,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="rent != null">
+                rent = #{rent,jdbcType=DOUBLE},
+            </if>
+            <if test="renttype != null">
+                renttype = #{renttype,jdbcType=VARCHAR},
+            </if>
+            <if test="leasehold != null">
+                leasehold = #{leasehold,jdbcType=INTEGER},
+            </if>
+            <if test="houseuserName != null">
+                houseuser_name = #{houseuserName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.yznu.zubow.entity.House">
     update house
     set createdate = #{createdate,jdbcType=DATE},
       status = #{status,jdbcType=INTEGER},
+      city = #{city,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       housetype = #{housetype,jdbcType=VARCHAR},
       area = #{area,jdbcType=DOUBLE},
@@ -198,64 +229,47 @@
     where id = #{id,jdbcType=VARCHAR}
   </update>
 
-  <resultMap id="houseVo" type="cn.yznu.zubow.entity.vo.HouseResultDataVo" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="createdate" property="createdate" jdbcType="DATE" />
-    <result column="status" property="status" jdbcType="INTEGER" />
-    <result column="address" property="address" jdbcType="VARCHAR" />
-    <result column="housetype" property="housetype" jdbcType="VARCHAR" />
-    <result column="area" property="area" jdbcType="DOUBLE" />
-    <result column="floor" property="floor" jdbcType="VARCHAR" />
-    <result column="decoration" property="decoration" jdbcType="VARCHAR" />
-    <result column="configuration" property="configuration" jdbcType="VARCHAR" />
-    <result column="remark" property="remark" jdbcType="VARCHAR" />
-    <result column="rent" property="rent" jdbcType="DOUBLE" />
-    <result column="renttype" property="renttype" jdbcType="VARCHAR" />
-    <result column="leasehold" property="leasehold" jdbcType="INTEGER" />
-    <result column="houseuser_name" property="houseuserName" jdbcType="VARCHAR" />
-    <result column="img" property="img" jdbcType="VARCHAR" />
-    <result column="leasehold" property="leasehold" jdbcType="INTEGER" />
-    <collection property="houseImageVos" ofType="cn.yznu.zubow.entity.vo.HouseImageVo">
-        <result column="imageurl" jdbcType="VARCHAR" property="imageurl"/>
-    </collection>
-  </resultMap>
+    <sql id="houseWhere">
+        <if test="houseSearchLimitVo!=null">
+            <if test="houseSearchLimitVo.address!=null">
+                AND h.address=#{houseSearchLimitVo.address}
+            </if>
+        </if>
+    </sql>
 
-  <sql id="houseWhere" >
-    <if test="houseSearchLimitVo!=null">
-      <if test="houseSearchLimitVo.address!=null">
-        AND h.address=#{houseSearchLimitVo.address}
-      </if>
-    </if>
-  </sql>
+    <sql id="limitWhere">
+        <if test="pageQuery!=null">
+            limit ${pageQuery.limitFirst},${pageQuery.showCount}
+        </if>
+    </sql>
 
-  <sql id="limitWhere">
-    <if test="pageQuery!=null">
-      limit ${pageQuery.limitFirst},${pageQuery.showCount}
-    </if>
-  </sql>
+    <!--数据库中是 date 格式    外部是 String 格式 -->
+    <select id="findHouse" parameterType="houseQueryVo" resultMap="houseVo">
+        SELECT h.id,date_format(h.createdate, '%Y-%m-%d')
+        createdate,h.`status`,h.city,h.address,h.housetype,h.area,h.floor,h.decoration,h.configuration,h.remark,h.rent,h.renttype,h.leasehold,h.houseuser_name,hi.imageurl
+        FROM house h LEFT JOIN houseimage hi ON h.id = hi.house_id
+        WHERE h.id IN (
+        SELECT s.id
+        FROM(SELECT id FROM house order by id desc
+        <include refid="limitWhere"/>
+        ) s
+        )
+        AND h.houseuser_name=#{houseSearchLimitVo.username,jdbcType=VARCHAR}
+        <include refid="houseWhere"/>
+        <!--<include refid="houseWhere" />-->
+    </select>
 
-  <select id="findHouse" parameterType="houseQueryVo" resultMap="houseVo" >
-    SELECT h.id,date_format(h.createdate, '%Y-%m-%d') createdate,h.`status`,h.address,h.housetype,h.area,h.floor,h.decoration,h.configuration,h.remark,h.rent,h.renttype,h.leasehold,h.houseuser_name,hi.imageurl
-    FROM house h LEFT JOIN houseimage hi ON h.id = hi.house_id
-    WHERE h.id IN (
-                  SELECT s.id
-                  FROM(SELECT id FROM house order by id desc
-                        <include refid="limitWhere" />
-                      ) s
-                  )
-    AND h.houseuser_name=#{houseSearchLimitVo.username,jdbcType=VARCHAR}
-                  <include refid="houseWhere" />
+    <select id="selectByPrimaryKey" resultMap="houseVo" parameterType="java.lang.String">
+        SELECT h.id,date_format(h.createdate, '%Y-%m-%d')
+        createdate,h.`status`,h.city,h.address,h.housetype,h.area,h.floor,h.decoration,h.configuration,h.remark,h.rent,h.renttype,h.leasehold,h.houseuser_name,hi.imageurl
+        FROM house h LEFT JOIN houseimage hi ON h.id = hi.house_id
+        WHERE h.id = #{id,jdbcType=VARCHAR}
+        <!--<include refid="houseWhere" />-->
+    </select>
 
-    <!--<include refid="houseWhere" />-->
-
-  </select>
-
-
-  <select id="findHouseCount" parameterType="houseQueryVo" resultType="Integer" >
+    <select id="findHouseCount" parameterType="houseQueryVo" resultType="Integer">
       SELECT count(*) FROM house h WHERE h.houseuser_name = #{houseSearchLimitVo.username,jdbcType=VARCHAR}
   </select>
-
-
 
 
 </mapper>

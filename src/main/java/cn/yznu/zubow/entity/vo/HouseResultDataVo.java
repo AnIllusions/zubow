@@ -18,6 +18,7 @@ public class HouseResultDataVo {
     private String createdate;
     /*-1已租0预定1空闲	状态*/
     private Integer status;
+    private String city;
     private String address;
     /*户型 两室一厅*/
     private String housetype;

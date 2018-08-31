@@ -57,9 +57,12 @@ public class HouseUserController {
     @PostMapping("/updatePass")
     @ResponseBody
     public InfoType updatePassword(User user,HttpServletRequest request){
+
         User oldUser = (User) request.getSession().getAttribute("currentUser");
 
         System.out.println(oldUser);
+        oldUser.setPassword(user.getPassword());
+
         int k = userService.updatePass(oldUser);
         InfoType infoType = new InfoType();
         //修改失败

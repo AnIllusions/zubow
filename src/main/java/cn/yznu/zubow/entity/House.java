@@ -20,6 +20,8 @@ public class House {
     private Date createdate;
     /*-1已租0预定1空闲	状态*/
     private Integer status;
+    /*城市*/
+    private String city;
     private String address;
     /*户型*/
     private String housetype;

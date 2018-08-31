@@ -40,7 +40,7 @@ public class PhotoUtil {
         // 保存文件
         file.transferTo(newFile1);
 
-        String webPath2 = request.getSession().getServletContext().getRealPath("\\WEB-INF");
+        String webPath2 = request.getSession().getServletContext().getRealPath("\\");
         /*上传到 服务器 target文件下*/
         String targetPath = "\\images\\upload\\"+user.getId();
         File targetFilePath = new File(webPath2 + targetPath);
@@ -50,7 +50,7 @@ public class PhotoUtil {
             targetFilePath.mkdirs();
         }
         PhotoCopyUtil.copyFile3(imgPath,imgPath1);
-        return imgPath1;
+        return targetPath + "\\" + newFileName + "." + extensionName;
 
         /*//获取 文件上传路径
         String pathval = request.getSession().getServletContext().getRealPath("/") + "WEB-INF/images/uploadFile/";
