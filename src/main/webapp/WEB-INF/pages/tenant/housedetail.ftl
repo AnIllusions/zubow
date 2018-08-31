@@ -72,10 +72,7 @@
         </ul>
         <div class="clearfix"></div>
     </div>
-
-
 </div>
-
 详细情况
 ${house.rent}
 </body>
