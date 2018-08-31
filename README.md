@@ -1,9 +1,12 @@
 # zubow
+采用Spring MVC + freemarker + mybatis + Layui + MySQL
+##数据库版本：5.7
+
 测试项目
 功能不完善
 #测试
-![头像](图片地址)
-[会显示出来的描述](跳转网址)
+![主页](https://github.com/AnIllusions/zubow/blob/master/images/login.png)
+[是](跳转网址)
 
 #斜体
 *西额*
