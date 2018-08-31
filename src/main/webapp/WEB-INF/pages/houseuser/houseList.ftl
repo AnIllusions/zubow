@@ -69,7 +69,7 @@
         table.render({
             elem:'#houseList',
             height:'450px',
-            url:'/house/houseUserList',
+            url:'/tenant/houseUserList',
             page:true,
             cols:[[
                 {type:'checkbox'},

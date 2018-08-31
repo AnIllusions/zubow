@@ -15,7 +15,7 @@
 <div class="header layui-bg-cyan">
     <ul class="layui-nav ">
         <li class="layui-nav-item"><a href="">城市[重庆]</a></li>
-        <li class="layui-nav-item"><a href="">房源中心</a></li>
+        <li class="layui-nav-item"><a href="/tenant/houseList">房源中心</a></li>
         <li class="layui-nav-item"><a href="">整租</a></li>
         <li class="layui-nav-item"><a href="">合租</a></li>
 
@@ -132,6 +132,91 @@
     <div class="category">
         <h2 class="top-line">·优质房源>>></h2>
         <ul>
+
+            <li>
+                <a href="#">
+                    <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px" >
+                    <div class="box4con">
+                        <p>地点</p>
+                        <div>
+                            <span class="s1">两室一厅</span>
+                            <span class="s2">价格：125万</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px" >
+                    <div class="box4con">
+                        <p>地点</p>
+                        <div>
+                            <span class="s1">两室一厅</span>
+                            <span class="s2">价格：125万</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px" >
+                    <div class="box4con">
+                        <p>地点</p>
+                        <div>
+                            <span class="s1">两室一厅</span>
+                            <span class="s2">价格：125万</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px" >
+                    <div class="box4con">
+                        <p>地点</p>
+                        <div>
+                            <span class="s1">两室一厅</span>
+                            <span class="s2">价格：125万</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px" >
+                    <div class="box4con">
+                        <p>地点</p>
+                        <div>
+                            <span class="s1">两室一厅</span>
+                            <span class="s2">价格：125万</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px" >
+                    <div class="box4con">
+                        <p>地点</p>
+                        <div>
+                            <span class="s1">两室一厅</span>
+                            <span class="s2">价格：125万</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px" >
+                    <div class="box4con">
+                        <p>地点</p>
+                        <div>
+                            <span class="s1">两室一厅</span>
+                            <span class="s2">价格：125万</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
             <li>
                 <a href="#">
                     <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px" >
@@ -155,11 +240,9 @@
 <footer>
     <div>
         <div class="footerBar">
-            <ul>
-                <li>sdfsdfadsf</li>
-                <li>sdfsdfadsf</li>
-                <li>sdfsdfadsf</li>
-            </ul>
+            <div style="margin-left: auto;margin-right: auto;text-align: center">
+                <b>© 1999–2015 The FreeMarker Project. All rights reserved. </b>
+            </div>
         </div>
     </div>
 </footer>

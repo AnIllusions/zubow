@@ -99,9 +99,94 @@
                     </div>
                 </a>
             </li>
+            <li>
+                <a href="#">
+                    <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px">
+                    <div class="box4con">
+                        <p>地点</p>
+                        <div>
+                            <span class="s1">两室一厅</span>
+                            <span class="s2">价格：125万</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px">
+                    <div class="box4con">
+                        <p>地点</p>
+                        <div>
+                            <span class="s1">两室一厅</span>
+                            <span class="s2">价格：125万</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px">
+                    <div class="box4con">
+                        <p>地点</p>
+                        <div>
+                            <span class="s1">两室一厅</span>
+                            <span class="s2">价格：125万</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px">
+                    <div class="box4con">
+                        <p>地点</p>
+                        <div>
+                            <span class="s1">两室一厅</span>
+                            <span class="s2">价格：125万</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px">
+                    <div class="box4con">
+                        <p>地点</p>
+                        <div>
+                            <span class="s1">两室一厅</span>
+                            <span class="s2">价格：125万</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px">
+                    <div class="box4con">
+                        <p>地点</p>
+                        <div>
+                            <span class="s1">两室一厅</span>
+                            <span class="s2">价格：125万</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/common/image/house/fangyuan1.jpg" width="280px" height="250px">
+                    <div class="box4con">
+                        <p>地点</p>
+                        <div>
+                            <span class="s1">两室一厅</span>
+                            <span class="s2">价格：125万</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
 
         </ul>
     </div>
+
 </div>
 <#--房源展示结束-->
 
@@ -110,11 +195,9 @@
 <footer>
     <div>
         <div class="footerBar">
-            <ul>
-                <li>sdfsdfadsf</li>
-                <li>sdfsdfadsf</li>
-                <li>sdfsdfadsf</li>
-            </ul>
+            <div style="margin-left: auto;margin-right: auto;text-align: center">
+                <b>© 1999–2015 The FreeMarker Project. All rights reserved. </b>
+            </div>
         </div>
     </div>
 </footer>

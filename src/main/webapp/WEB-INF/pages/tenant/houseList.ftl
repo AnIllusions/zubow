@@ -174,14 +174,13 @@
 <#--<legend>图片懒加载</legend>-->
 <#--</fieldset>-->
 <div id="house_list" class="site-demo-flow main">
-
-    <div class="house-item">
+<#--    <div class="house-item">
         <a class="img" href="javascript:;">
             <img src="/images/upload/1534314370360/1535508281781.jpg" width="180px" height="135px">
         </a>
-    <#-- 房屋详细信息 -->
+    &lt;#&ndash; 房屋详细信息 &ndash;&gt;
         <div class="zu-info">
-        <#--标题-->
+        &lt;#&ndash;标题&ndash;&gt;
             <h3><a target="_blank" title="某某房子" href="javascript:;">某某房子</a></h3>
             <p class="details-item">三室一厅
                 <span>|</span>86平米
@@ -197,13 +196,13 @@
             </p>
 
         </div>
-    <#-- 价格 -->
+    &lt;#&ndash; 价格 &ndash;&gt;
         <div class="zu-side">
             <p>
                 <strong>1700</strong> 元/月
             </p>
         </div>
-    </div>
+    </div>-->
     <#--流加载文章列表-->
 </div>
 <div id="house_list" class="site-demo-flow main-adv">
@@ -218,7 +217,6 @@
 
 </body>
 </html>
-<script src="/common/plugin/layui/layui.all.js" charset="utf-8"></script>
 <script src="/common/js/jquery.min.js" type="text/javascript"></script>
 <script src="/common/plugin/layui/layui.js" charset="utf-8"></script>
 <script src="/common/js/loadhouse.js" charset="utf-8"></script>
