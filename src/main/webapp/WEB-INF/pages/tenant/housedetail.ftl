@@ -99,6 +99,5 @@ ${house.rent}
                 }
             });
         });
-
     });
 </script>
