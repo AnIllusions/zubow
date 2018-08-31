@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-08-15 15:21:57
+Date: 2018-08-31 16:13:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -54,6 +54,7 @@ CREATE TABLE `house` (
   `id` varchar(25) NOT NULL,
   `createdate` date DEFAULT NULL,
   `status` int(3) DEFAULT '1',
+  `city` varchar(10) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `housetype` varchar(50) DEFAULT '两室一厅',
   `area` double DEFAULT NULL,
@@ -71,6 +72,24 @@ CREATE TABLE `house` (
 -- ----------------------------
 -- Records of house
 -- ----------------------------
+INSERT INTO `house` VALUES ('1534906743599', '2018-08-22', '1', '渝中区', '12', '一室一厅', '12', '12,33', '精装', '冰箱,空调', '313', '12', '面议', '0', '士大夫');
+INSERT INTO `house` VALUES ('1534948387066', '2018-08-22', '1', '渝中区', '12', '一室一厅', '1212', '1,2', '精装', '冰箱,空调', '发士大夫', '12', '付一押一', '0', '士大夫');
+INSERT INTO `house` VALUES ('1535002207043', '2018-08-23', '1', '渝中区', '111111', '四室二厅', '11111', '11,111', '精装', '冰箱,空调,洗衣机,热水器,可做饭', '123123213', '111', '付三押二', '1', '士大夫');
+INSERT INTO `house` VALUES ('1535420947416', '2018-08-28', '1', '渝中区', '李家吧', '二室一厅', '23', '1,12', '简装', '冰箱,空调,电视,洗衣机,热水器,可做饭,宽带,床,衣柜', '无', '1000', '付一押一', '0', '士大夫');
+INSERT INTO `house` VALUES ('1535420996685', '2018-08-28', '1', '渝中区', '你', '二室一厅', '12', '2,33', '精装', '冰箱,空调,电视,洗衣机,热水器,可做饭,宽带,床,衣柜', '无', '1222', '半年付', '0', '士大夫');
+INSERT INTO `house` VALUES ('1535421012710', '2018-08-28', '1', '渝中区', '人额人', '一室一厅', '1223', '1,32', '精装', '冰箱,空调,电视,洗衣机,热水器,可做饭,宽带,床,衣柜', '无', '32', '付一押一', '0', '士大夫');
+INSERT INTO `house` VALUES ('1535421031229', '2018-08-28', '1', '渝中区', '热风丰富', '二室一厅', '122', '3,4', '精装', '冰箱,空调,电视,洗衣机,热水器,可做饭,宽带,床,衣柜', '无', '32', '付三押二', '1', '士大夫');
+INSERT INTO `house` VALUES ('1535421060299', '2018-08-28', '1', '渝中区', '12213', '一室一厅', '123', '123,12321', '精装', '冰箱,空调,洗衣机', '12321', '123', '面议', '0', '士大夫');
+INSERT INTO `house` VALUES ('1535421070981', '2018-08-28', '1', '渝中区', '123', '一室一厅', '123', '1,12', '精装', '冰箱,空调,电视', '123', '12', '面议', '1', '士大夫');
+INSERT INTO `house` VALUES ('1535421080171', '2018-08-28', '1', '渝中区', '23232', '一室一厅', '3213', '123,3214', '精装', '冰箱,空调,电视', '123', '12', '付一押一', '1', '士大夫');
+INSERT INTO `house` VALUES ('1535421093053', '2018-08-28', '1', '渝中区', '123123', '一室一厅', '123', '12,424', '精装', '冰箱,空调,电视,洗衣机,可做饭,宽带,床,衣柜', '123123', '1234', '付三押一', '1', '士大夫');
+INSERT INTO `house` VALUES ('1535421137920', '2018-08-28', '1', '渝中区', '123424', '一室一厅', '454', '1,2', '精装', '冰箱,空调,可做饭', '123', '111', '付一押一', '1', '士大夫');
+INSERT INTO `house` VALUES ('1535439903688', '2018-08-28', '1', '渝中区', '大溪沟', '三室二厅', '140', '1,22', '简装', '冰箱,空调,电视,洗衣机,热水器,可做饭,宽带,床,衣柜', '测试', '1400', '半年付', '0', '士大夫');
+INSERT INTO `house` VALUES ('1535507784585', '2018-08-29', '1', '渝中区', '333', '二室一厅', '3434', '33,44', '精装', '冰箱', '', '443', '付一押一', '1', '士大夫');
+INSERT INTO `house` VALUES ('1535508282944', '2018-08-29', '1', '渝中区', '32', '一室一厅', '23', '23,23', '精装', '冰箱', '23', '23', '面议', '0', '士大夫');
+INSERT INTO `house` VALUES ('1535509357408', '2018-08-29', '1', '渝中区', '你在', '一室一厅', '122', '1,2', '精装', '冰箱,空调,洗衣机,可做饭', '撒旦发射点', '1222', '面议', '0', '士大夫');
+INSERT INTO `house` VALUES ('1535509493724', '2018-08-29', '1', '渝中区', '111', '一室一厅', '12', '12,323', '精装', '冰箱,电视', '123123', '12', '面议', '0', '士大夫');
+INSERT INTO `house` VALUES ('1535698925523', '2018-08-31', '1', '渝中区', '九博数据库', '四室一厅', '122', '1,2', '精装', '冰箱,空调,电视,洗衣机,热水器,可做饭', '123123', '14000', '面议', '0', '士大夫');
 
 -- ----------------------------
 -- Table structure for `houseimage`
@@ -78,12 +97,40 @@ CREATE TABLE `house` (
 DROP TABLE IF EXISTS `houseimage`;
 CREATE TABLE `houseimage` (
   `house_id` varchar(25) NOT NULL,
-  `imageurl` varchar(25) NOT NULL
+  `imageurl` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of houseimage
 -- ----------------------------
+INSERT INTO `houseimage` VALUES ('1535002207043', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535002207043', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535002207043', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535420947416', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535420996685', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535421012710', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535421012710', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535421031229', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535421031229', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535421060299', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535421060299', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535421070981', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535421070981', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535421080171', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535421080171', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535421093053', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535421093053', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535421137920', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535421137920', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535439903688', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535507784585', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535508282944', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535509357408', '\\images\\upload\\1534314370360\\1535508281781.jpg');
+INSERT INTO `houseimage` VALUES ('1535509493724', '\\images\\upload\\1534314370360\\1535509491740.jpg');
+INSERT INTO `houseimage` VALUES ('1535698925523', '\\images\\upload\\1534314370360\\1535698916387.jpg');
+INSERT INTO `houseimage` VALUES ('1535698925523', '\\images\\upload\\1534314370360\\1535698918396.jpg');
+INSERT INTO `houseimage` VALUES ('1535698925523', '\\images\\upload\\1534314370360\\1535698920384.jpg');
+INSERT INTO `houseimage` VALUES ('1535698925523', '\\images\\upload\\1534314370360\\1535698922300.jpg');
 
 -- ----------------------------
 -- Table structure for `house_resource`
@@ -186,5 +233,5 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1534314291670', '2018-08-15', '0', '0', '1', null, 'Jack', '2', '2', '男');
-INSERT INTO `user` VALUES ('1534314370360', '2018-08-15', '0', '0', '1', null, '士大夫', '2', '2', '男');
+INSERT INTO `user` VALUES ('1534314291670', '2018-08-17', '0', '0', '1', null, 'Jack', '2', '2', '男');
+INSERT INTO `user` VALUES ('1534314370360', '2018-08-23', '0', '0', '0', '', '士大夫', '15655565655', '2', '男');
